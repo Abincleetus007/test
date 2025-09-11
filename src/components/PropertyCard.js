@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "./PropertyCard.css"; // import your CSS for cards
 
 function PropertyCard({ property }) {
   return (
