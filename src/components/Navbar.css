@@ -54,14 +54,7 @@ body, html {
   opacity: 0.7;
 }
 
-/* Desktop: adjust logo if needed */
-@media (min-width: 769px) {
-  .nav-logo {
-    margin-left: 0;
-  }
-}
-
-/* Menu (desktop) */
+/* Desktop menu */
 .nav-menu {
   display: flex;
   list-style: none;
@@ -127,6 +120,7 @@ body, html {
   background: rgba(0, 0, 0, 0.6);
   z-index: 999;
 }
+
 /* Mobile styles */
 @media (max-width: 768px) {
   .nav-logo {
@@ -142,7 +136,7 @@ body, html {
     position: fixed;
     top: 0;
     left: -100%;
-    background-color: #000;   /* ✅ change mobile menu bg to black */
+    background-color: #000 !important; /* black menu */
     width: 70%;
     max-width: 300px;
     height: 100vh;
@@ -160,12 +154,16 @@ body, html {
   }
 
   /* Links inside mobile menu */
-  .nav-link {
-    color: white;              /* text white */
+  .nav-menu a,
+  .nav-menu a:active,
+  .nav-menu a:focus {
+    -webkit-tap-highlight-color: transparent; /* remove blue tap highlight */
+    outline: none;
+    color: white;
   }
 
   .nav-link:hover,
   .nav-link.active {
-    color: #ffc107;            /* highlight color */
+    color: #ffc107;
   }
 }
