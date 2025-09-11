@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import PropertyCard from "../components/PropertyCard";
 import propertiesData from "../data/properties"; // 👈 import local data
-import './projets.css';
+import './Home.css';
 
 export default function Home() {
   const [properties, setProperties] = useState([]);

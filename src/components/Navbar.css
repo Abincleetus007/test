@@ -14,20 +14,40 @@
   background-color: rgba(0, 0, 0, 0.85);
 }
 
+/* Navbar container */
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .nav-logo h2 {
   margin: 0;
   font-size: 28px;
 }
+
 .nav-logo span {
   font-size: 12px;
   opacity: 0.7;
+}
+
+/* Desktop: keep logo 3cm from left */
+@media (min-width: 769px) {
+  .nav-logo {
+    margin-left: -3cm;
+  }
 }
 
 /* Menu (desktop) */
@@ -60,13 +80,21 @@
   flex-direction: column;
   cursor: pointer;
   gap: 5px;
+  z-index: 10001;
+  background:black; /* ✅ transparent background */
+  border: none;
 }
 
 .hamburger span {
   width: 25px;
   height: 3px;
-  background: white;
+  background: white;       /* default line color */
   transition: 0.3s;
+}
+
+/* Hamburger open animation + line color change */
+.hamburger.open span {
+  background: #ffc107;     /* change line color when open */
 }
 
 .hamburger.open span:nth-child(1) {
@@ -79,8 +107,24 @@
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Mobile menu */
+/* Overlay for mobile menu */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
+
+/* Mobile styles */
 @media (max-width: 768px) {
+  /* Reset logo position on mobile */
+  .nav-logo {
+    margin-left: 0;
+  }
+
   .hamburger {
     display: flex;
   }
@@ -90,12 +134,13 @@
     position: fixed;
     top: 0;
     left: -100%;
-    background-color: #000;
-    width: 70%;
+    background-color: #b45a5a;
+    width: 70%;            /* takes 70% of screen */
+    max-width: 300px;      /* prevent too wide on large phones */
     height: 100vh;
     transition: left 0.3s ease-in-out;
     padding: 100px 20px;
-    z-index: 9999;
+    z-index: 1000;
   }
 
   .nav-menu.active {
