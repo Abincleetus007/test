@@ -63,7 +63,9 @@ export default function PropertyDetail() {
             <h1>{property.title}</h1>
             <div className="price">₹{property.price?.toLocaleString()}</div>
           </div>
-
+{/* Description */}
+          <h2 className="section-title">Description</h2>
+          <p className="description">{property.description}</p>
           {/* Stats */}
           <div className="property-stats">
             <div className="stat-item">
@@ -79,10 +81,6 @@ export default function PropertyDetail() {
           </div>
 
           <hr className="divider" />
-
-          {/* Description */}
-          <h2 className="section-title">Description</h2>
-          <p className="description">{property.description}</p>
 
           {/* Actions (Video & Location) */}
           <div className="property-actions">
@@ -118,8 +116,8 @@ export default function PropertyDetail() {
           <div className="agent-info">
             <div className="agent-avatar">BD</div>
             <div className="agent-details">
-              <div className="agent-name">BuilderDash Agent</div>
-              <div className="agent-role">Property Specialist</div>
+              <div className="agent-name">BuilderDash </div>
+    
             </div>
           </div>
 
