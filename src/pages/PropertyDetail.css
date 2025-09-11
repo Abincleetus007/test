@@ -67,6 +67,7 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
+  flex-wrap: wrap;
 }
 
 .price {
@@ -81,6 +82,7 @@
   margin: 15px 0;
   font-size: 14px;
   color: #555;
+  flex-wrap: wrap;
 }
 
 .divider {
@@ -224,4 +226,81 @@
   max-width: 90%;
   max-height: 80%;
   border-radius: 10px;
+}
+
+/* 📱 Responsive Styles */
+@media (max-width: 992px) {
+  .property-content {
+    grid-template-columns: 1fr; /* Stack main + agent vertically */
+  }
+
+  .property-main,
+  .agent-contact {
+    padding: 15px;
+  }
+
+  .slider-img {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .property-stats {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .property-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .price {
+    font-size: 20px;
+  }
+
+  .action-card {
+    flex: 1 1 100%;
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .slider-img {
+    max-height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .detail-container {
+    padding: 12px;
+  }
+
+  .property-header h1 {
+    font-size: 18px;
+  }
+
+  .price {
+    font-size: 18px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .agent-avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .whatsapp-btn,
+  .call-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .slider-img {
+    max-height: 200px;
+  }
 }
