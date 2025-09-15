@@ -6,6 +6,9 @@ import PropertyDetail from "./pages/PropertyDetail";
 import HomePage from "./pages/HomePage";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import ServicePage from "./pages/ServicePage";
+
+
 import "./App.css";
 
 export default function App() {
@@ -22,6 +25,9 @@ export default function App() {
         {/* Property details */}
         <Route path="/property/:id" element={<PropertyDetail />} />
         
+            {/* ✅ Service page */}
+            <Route path="/services" element={<ServicePage />} />
+      
         {/* About page */}
         <Route path="/about" element={<About />} />
         

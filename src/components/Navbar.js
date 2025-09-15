@@ -1,6 +1,6 @@
+// src/components/Navbar.js
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { HashLink } from "react-router-hash-link";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -48,14 +48,13 @@ const Navbar = () => {
         {/* Menu */}
         <ul className={`nav-menu ${menuOpen ? "active" : ""}`}>
           <li className="nav-item">
-            <HashLink
-              smooth
-              to="/#home"
+            <Link
+              to="/"
               className={activeSection === "home" ? "nav-link active" : "nav-link"}
               onClick={() => handleNavClick("home")}
             >
               Home
-            </HashLink>
+            </Link>
           </li>
           <li className="nav-item">
             <Link
@@ -67,24 +66,31 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <HashLink
-              smooth
-              to="/#about"
+            <Link
+              to="/services"
+              className={activeSection === "services" ? "nav-link active" : "nav-link"}
+              onClick={() => handleNavClick("services")}
+            >
+              Services
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link
+              to="/about"
               className={activeSection === "about" ? "nav-link active" : "nav-link"}
               onClick={() => handleNavClick("about")}
             >
               About
-            </HashLink>
+            </Link>
           </li>
           <li className="nav-item">
-            <HashLink
-              smooth
-              to="/#contact"
+            <Link
+              to="/contact"
               className={activeSection === "contact" ? "nav-link active" : "nav-link"}
               onClick={() => handleNavClick("contact")}
             >
               Contact
-            </HashLink>
+            </Link>
           </li>
         </ul>
       </div>

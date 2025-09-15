@@ -1,20 +1,38 @@
 import "./HomePage.css";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 // ✅ Import logo images
 import whatsappLogo from "../assets/whatsapp.png";
 import phoneLogo from "../assets/phone.png";
 import mapsLogo from "../assets/maps.png";
 
+const heroImages = [
+  "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1400&q=80",
+  "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1400&q=80",
+  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80"
+];
+
 const HomePage = () => {
   const navigate = useNavigate();
+  const [currentImage, setCurrentImage] = useState(0);
+
+  // 🔄 Auto change hero image every 5s
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="home-page">
-    
-
       {/* Hero Section */}
-      <section id="home" className="hero-section">
+      <section
+        id="home"
+        className="hero-section"
+        style={{ backgroundImage: `url(${heroImages[currentImage]})` }}
+      >
         <div className="hero-content">
           <h1>THE BUILDER</h1>
           <p>ARCHITECTS | INTERIOR | CONSTRUCTION & CONTRACTING</p>
@@ -32,12 +50,11 @@ const HomePage = () => {
         <div className="about-container">
           {/* Images */}
           <div className="about-images">
-            <img 
-              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" 
-              alt="Villa exterior" 
+            <img
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80"
+              alt="Villa exterior"
               className="about-img img1"
             />
-           
           </div>
 
           {/* Text */}
@@ -117,7 +134,6 @@ const HomePage = () => {
               alt="Contact image 1"
               className="contact-img img1"
             />
-            
           </div>
 
           {/* Text */}
@@ -176,7 +192,6 @@ const HomePage = () => {
               </ul>
             </div>
             <div className="footer-section">
-              
               <div className="social-icons">
                 <a href="#"><i className="fab fa-facebook-f"></i></a>
                 <a href="#"><i className="fab fa-instagram"></i></a>
