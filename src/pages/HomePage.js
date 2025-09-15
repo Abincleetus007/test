@@ -2,10 +2,13 @@ import "./HomePage.css";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-// ✅ Import logo images
-import whatsappLogo from "../assets/whatsapp.png";
-import phoneLogo from "../assets/phone.png";
-import mapsLogo from "../assets/maps.png";
+// Font Awesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPhone, faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import { faWhatsapp, faFacebookF, faInstagram } from "@fortawesome/free-brands-svg-icons";
+
+// Testimonials
+import TestimonialPage from "../data/Testimonial"; // Component that uses src/data/Testimonial.js
 
 const heroImages = [
   "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1400&q=80",
@@ -17,7 +20,7 @@ const HomePage = () => {
   const navigate = useNavigate();
   const [currentImage, setCurrentImage] = useState(0);
 
-  // 🔄 Auto change hero image every 5s
+  // Auto change hero image every 5s
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % heroImages.length);
@@ -36,10 +39,7 @@ const HomePage = () => {
         <div className="hero-content">
           <h1>THE BUILDER</h1>
           <p>ARCHITECTS | INTERIOR | CONSTRUCTION & CONTRACTING</p>
-          <button
-            className="hero-btn"
-            onClick={() => navigate("/projects")}
-          >
+          <button className="hero-btn" onClick={() => navigate("/projects")}>
             Explore Our Works
           </button>
         </div>
@@ -48,7 +48,6 @@ const HomePage = () => {
       {/* About Section */}
       <section id="about" className="about-section">
         <div className="about-container">
-          {/* Images */}
           <div className="about-images">
             <img
               src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80"
@@ -56,8 +55,6 @@ const HomePage = () => {
               className="about-img img1"
             />
           </div>
-
-          {/* Text */}
           <div className="about-text">
             <h1>ABOUT US</h1>
             <h2>Professional Construction & Interior Designing Company</h2>
@@ -124,19 +121,18 @@ const HomePage = () => {
         </div>
       </section>
 
+
+
       {/* Contact Section */}
       <section id="contact" className="contact-section">
         <div className="contact-container">
-          {/* Images */}
           <div className="contact-images">
             <img
               src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=600&q=80"
-              alt="Contact image 1"
+              alt="Contact image"
               className="contact-img img1"
             />
           </div>
-
-          {/* Text */}
           <div className="contact-text">
             <h2>CONTACT US</h2>
             <p>
@@ -144,34 +140,18 @@ const HomePage = () => {
               about our construction and design services.
             </p>
             <div className="contact-info">
-              <p><i className="fas fa-phone"></i> +91 00000000</p>
-              <p><i className="fas fa-envelope"></i> info@builder.com</p>
-            </div>
-
-            {/* Buttons with Logos */}
-            <div className="contact-logos">
-              <img
-                src={whatsappLogo}
-                alt="WhatsApp"
-                className="contact-logo"
-                onClick={() => window.open("https://wa.me/7012599817", "_blank")}
-              />
-              <img
-                src={phoneLogo}
-                alt="Call"
-                className="contact-logo"
-                onClick={() => window.open("tel:+9100000000")}
-              />
-              <img
-                src={mapsLogo}
-                alt="Location"
-                className="contact-logo"
-                onClick={() => window.open("https://maps.app.goo.gl/ok4yFCoJVBcfsZir7")}
-              />
+              <p>
+                <FontAwesomeIcon icon={faPhone} /> +91 00000000
+              </p>
+              <p>
+                <FontAwesomeIcon icon={faEnvelope} /> info@builder.com
+              </p>
             </div>
           </div>
         </div>
       </section>
+      {/* Testimonials Section */}
+      <TestimonialPage />
 
       {/* Footer */}
       <footer className="footer">
@@ -193,8 +173,8 @@ const HomePage = () => {
             </div>
             <div className="footer-section">
               <div className="social-icons">
-                <a href="#"><i className="fab fa-facebook-f"></i></a>
-                <a href="#"><i className="fab fa-instagram"></i></a>
+                <a href="#"><FontAwesomeIcon icon={faFacebookF} /></a>
+                <a href="#"><FontAwesomeIcon icon={faInstagram} /></a>
               </div>
             </div>
           </div>

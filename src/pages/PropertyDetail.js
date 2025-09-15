@@ -1,8 +1,21 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import WhatsAppButton from "../components/WhatsAppButton";
+
 import "./PropertyDetail.css";
 import propertiesData from "../data/properties";
+
+
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPlay,
+  faMapMarkerAlt,
+  faArrowLeft,
+  faArrowRight,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 export default function PropertyDetail() {
   const { id } = useParams();
@@ -39,7 +52,7 @@ export default function PropertyDetail() {
           {/* Slider */}
           <div className="slider">
             <button className="arrow left" onClick={prevImage}>
-              &#10094;
+              <FontAwesomeIcon icon={faArrowLeft} />
             </button>
             <img
               src={images[currentIndex]}
@@ -48,7 +61,7 @@ export default function PropertyDetail() {
               onClick={() => setFullscreen(true)}
             />
             <button className="arrow right" onClick={nextImage}>
-              &#10095;
+              <FontAwesomeIcon icon={faArrowRight} />
             </button>
 
             {images.length > 1 && (
@@ -63,9 +76,11 @@ export default function PropertyDetail() {
             <h1>{property.title}</h1>
             <div className="price">₹{property.price?.toLocaleString()}</div>
           </div>
-{/* Description */}
+
+          {/* Description */}
           <h2 className="section-title">Description</h2>
           <p className="description">{property.description}</p>
+
           {/* Stats */}
           <div className="property-stats">
             <div className="stat-item">
@@ -91,7 +106,7 @@ export default function PropertyDetail() {
                 rel="noreferrer"
                 className="action-card"
               >
-                <span className="action-icon">▶</span>
+                <FontAwesomeIcon icon={faPlay} className="action-icon" />
                 <span className="action-text">Watch Video Tour</span>
               </a>
             )}
@@ -103,7 +118,7 @@ export default function PropertyDetail() {
                 rel="noreferrer"
                 className="action-card"
               >
-                <span className="action-icon">📍</span>
+                <FontAwesomeIcon icon={faMapMarkerAlt} className="action-icon" />
                 <span className="action-text">View Location</span>
               </a>
             )}
@@ -112,12 +127,10 @@ export default function PropertyDetail() {
 
         {/* Right Side - Contact Agent */}
         <div className="agent-contact agent-offset">
-
           <div className="agent-info">
             <div className="agent-avatar">BD</div>
             <div className="agent-details">
               <div className="agent-name">BuilderDash </div>
-    
             </div>
           </div>
 
@@ -125,9 +138,11 @@ export default function PropertyDetail() {
             <WhatsAppButton
               message={`Hi, I'm interested in the property at ${property.title}`}
               className="whatsapp-btn"
-            />
+            >
+              <FontAwesomeIcon icon={faWhatsapp} /> WhatsApp
+            </WhatsAppButton>
             <a href={`tel:+1234567890`} className="call-btn">
-              Call Now
+              <FontAwesomeIcon icon={faPhone} /> Call Now
             </a>
           </div>
 
@@ -141,6 +156,9 @@ export default function PropertyDetail() {
         </div>
       </div>
 
+      {/* Testimonials Section */}
+    
+
       {/* Fullscreen Image Viewer */}
       {fullscreen && (
         <div className="fullscreen" onClick={() => setFullscreen(false)}>
@@ -151,7 +169,7 @@ export default function PropertyDetail() {
               prevImage();
             }}
           >
-            &#10094;
+            <FontAwesomeIcon icon={faArrowLeft} />
           </button>
           <img
             src={images[currentIndex]}
@@ -165,7 +183,7 @@ export default function PropertyDetail() {
               nextImage();
             }}
           >
-            &#10095;
+            <FontAwesomeIcon icon={faArrowRight} />
           </button>
           {images.length > 1 && (
             <div className="image-counter">
