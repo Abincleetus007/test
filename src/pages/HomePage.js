@@ -124,12 +124,13 @@ const HomePage = () => {
 
 
       {/* Contact Section */}
+      {/* Contact Section */}
       <section id="contact" className="contact-section">
         <div className="contact-container">
           <div className="contact-images">
             <img
               src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=600&q=80"
-              alt="Contact image"
+              alt="Contact image 1"
               className="contact-img img1"
             />
           </div>
@@ -146,6 +147,28 @@ const HomePage = () => {
               <p>
                 <FontAwesomeIcon icon={faEnvelope} /> info@builder.com
               </p>
+            </div>
+
+            {/* Buttons with Font Awesome */}
+            <div className="contact-logos">
+              <button
+                className="contact-logo-btn"
+                onClick={() => window.open("https://wa.me/7012599817", "_blank")}
+              >
+                <FontAwesomeIcon icon={faWhatsapp} size="2x" />
+              </button>
+              <button
+                className="contact-logo-btn"
+                onClick={() => window.open("tel:+9100000000")}
+              >
+                <FontAwesomeIcon icon={faPhone} size="2x" />
+              </button>
+              <button
+                className="contact-logo-btn"
+                onClick={() => window.open("https://maps.app.goo.gl/ok4yFCoJVBcfsZir7")}
+              >
+                <FontAwesomeIcon icon={faMapMarkerAlt} size="2x" />
+              </button>
             </div>
           </div>
         </div>

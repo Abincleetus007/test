@@ -56,6 +56,15 @@ const Navbar = () => {
               Home
             </Link>
           </li>
+           <li className="nav-item">
+            <Link
+              to="/services"
+              className={activeSection === "services" ? "nav-link active" : "nav-link"}
+              onClick={() => handleNavClick("services")}
+            >
+              Services
+            </Link>
+          </li>
           <li className="nav-item">
             <Link
               to="/projects"
@@ -65,15 +74,7 @@ const Navbar = () => {
               Projects
             </Link>
           </li>
-          <li className="nav-item">
-            <Link
-              to="/services"
-              className={activeSection === "services" ? "nav-link active" : "nav-link"}
-              onClick={() => handleNavClick("services")}
-            >
-              Services
-            </Link>
-          </li>
+         
           <li className="nav-item">
             <Link
               to="/about"
