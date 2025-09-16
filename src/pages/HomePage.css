@@ -6,6 +6,15 @@ body, html {
   scroll-behavior: smooth;
 }
 
+
+/* Hero Section Background Animation */
+
+.hero-section {
+  animation: backgroundFlow 20s infinite; /* 4 images x 5s = 20s total */
+  transition: background-image 1s ease-in-out; /* smooth fade */
+}
+
+
 /* ================== Hero Section ================== */
 .hero-section {
   height: 100vh;
@@ -232,6 +241,14 @@ body, html {
   transform: scale(1.2) rotate(-8deg);
   filter: brightness(1.2);
 }
+
+
+.testimonial-section {
+  margin-top: -76px; /* move it up by ~2cm */
+  position: relative;
+  z-index: 2; /* make sure it stays above background overlays if any */
+}
+
 
 /* ================== Footer ================== */
 .footer {

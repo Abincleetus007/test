@@ -150,8 +150,11 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-      {/* Testimonials Section */}
-      <TestimonialPage />
+     {/* Testimonials Section */}
+<div className="testimonial-section">
+  <TestimonialPage />
+</div>
+
 
       {/* Footer */}
       <footer className="footer">

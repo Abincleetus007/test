@@ -6,10 +6,11 @@
 
 .property-content {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2fr 1fr; /* Left = main details, Right = sidebar */
   gap: 30px;
 }
 
+/* ========== LEFT SIDE (Main Property) ========== */
 .property-main {
   background: #fff;
   padding: 20px;
@@ -138,16 +139,82 @@
   font-size: 18px;
 }
 
+/* ========== RIGHT SIDE (Testimonials + Agent) ========== */
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
-/* tes/*
+/* Testimonials */
+.property-testimonials {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.testimonials-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.testimonial-card {
+  background: #f9fafb;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+}
+
+.testimonial-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-bottom: 8px;
+}
+
+.testimonial-message {
+  font-size: 14px;
+  font-style: italic;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+.testimonial-stars {
+  color: #facc15;
+  margin-bottom: 6px;
+}
+
+.testimonial-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.testimonial-role {
+  font-size: 12px;
+  color: #666;
+}
+.property-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
 
-/* Right side - agent contact */
+/* Agent Contact */
 .agent-contact {
-  background: transparent; /* ✅ makes it transparent */
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: none; /* remove shadow if you want full transparency */
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 
@@ -163,7 +230,7 @@
   height: 50px;
   border-radius: 50%;
   background: #2563eb;
-  color: 0000#fff;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -236,16 +303,21 @@
 /* 📱 Responsive Styles */
 @media (max-width: 992px) {
   .property-content {
-    grid-template-columns: 1fr; /* Stack main + agent vertically */
+    grid-template-columns: 1fr; /* Stack main + right column vertically */
   }
 
   .property-main,
-  .agent-contact {
+  .agent-contact,
+  .property-testimonials {
     padding: 15px;
   }
 
   .slider-img {
     max-height: 300px;
+  }
+
+  .right-column {
+    flex-direction: column;
   }
 }
 
@@ -308,11 +380,4 @@
   .slider-img {
     max-height: 200px;
   }
-}
-.agent-info {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 15px;
-  margin-top: 10cm; /* ⬇ Pushes the BuilderDash Agent section 6 cm down */
 }

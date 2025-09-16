@@ -5,8 +5,6 @@ import WhatsAppButton from "../components/WhatsAppButton";
 import "./PropertyDetail.css";
 import propertiesData from "../data/properties";
 
-
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlay,
@@ -16,6 +14,8 @@ import {
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar as regularStar } from "@fortawesome/free-regular-svg-icons";
 
 export default function PropertyDetail() {
   const { id } = useParams();
@@ -47,7 +47,7 @@ export default function PropertyDetail() {
   return (
     <div className="detail-container">
       <div className="property-content">
-        {/* Left Side - Property Info */}
+        {/* LEFT COLUMN - Property Info */}
         <div className="property-main">
           {/* Slider */}
           <div className="slider">
@@ -83,16 +83,9 @@ export default function PropertyDetail() {
 
           {/* Stats */}
           <div className="property-stats">
-            <div className="stat-item">
-              <span className="checkbox"></span> {property.bedrooms} Bedrooms
-            </div>
-            <div className="stat-item">
-              <span className="checkbox"></span> {property.bathrooms} Bathrooms
-            </div>
-            <div className="stat-item">
-              <span className="checkbox"></span>{" "}
-              {property.sqft?.toLocaleString()} sqft
-            </div>
+            <div className="stat-item">{property.bedrooms} Bedrooms</div>
+            <div className="stat-item">{property.bathrooms} Bathrooms</div>
+            <div className="stat-item">{property.sqft?.toLocaleString()} sqft</div>
           </div>
 
           <hr className="divider" />
@@ -107,7 +100,7 @@ export default function PropertyDetail() {
                 className="action-card"
               >
                 <FontAwesomeIcon icon={faPlay} className="action-icon" />
-                <span className="action-text">Watch Video Tour</span>
+                <span>Watch Video Tour</span>
               </a>
             )}
 
@@ -119,45 +112,77 @@ export default function PropertyDetail() {
                 className="action-card"
               >
                 <FontAwesomeIcon icon={faMapMarkerAlt} className="action-icon" />
-                <span className="action-text">View Location</span>
+                <span>View Location</span>
               </a>
             )}
           </div>
         </div>
 
-        {/* Right Side - Contact Agent */}
-        <div className="agent-contact agent-offset">
-          <div className="agent-info">
-            <div className="agent-avatar">BD</div>
-            <div className="agent-details">
-              <div className="agent-name">BuilderDash </div>
+        {/* RIGHT COLUMN */}
+        <div className="right-column">
+          {/* ✅ Testimonials moved here */}
+          {property.testimonials && property.testimonials.length > 0 ? (
+            <div className="property-testimonials">
+              <h2 className="section-title">What Our Clients Say</h2>
+              <div className="testimonials-grid">
+                {property.testimonials.map((t, index) => (
+                  <div key={index} className="testimonial-card">
+                    <img
+                      src={t.avatar}
+                      alt={t.name}
+                      className="testimonial-avatar"
+                    />
+                    <p className="testimonial-message">"{t.message}"</p>
+                    <div className="testimonial-stars">
+                      {Array.from({ length: 5 }, (_, i) => (
+                        <FontAwesomeIcon
+                          key={i}
+                          icon={i < t.rating ? solidStar : regularStar}
+                          className="testimonial-star"
+                        />
+                      ))}
+                    </div>
+                    <h3 className="testimonial-name">{t.name}</h3>
+                    <p className="testimonial-role">{t.role}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          ) : (
+            <p className="no-testimonials">No testimonials yet for this property.</p>
+          )}
 
-          <div className="contact-actions">
-            <WhatsAppButton
-              message={`Hi, I'm interested in the property at ${property.title}`}
-              className="whatsapp-btn"
-            >
-              <FontAwesomeIcon icon={faWhatsapp} /> WhatsApp
-            </WhatsAppButton>
-            <a href={`tel:+1234567890`} className="call-btn">
-              <FontAwesomeIcon icon={faPhone} /> Call Now
-            </a>
-          </div>
-
-          <div className="listing-info">
-            <div>
-              Listed on{" "}
-              {new Date(property.createdAt || Date.now()).toLocaleDateString()}
+          {/* Agent Contact */}
+          <div className="agent-contact">
+            <div className="agent-info">
+              <div className="agent-avatar">BD</div>
+              <div className="agent-details">
+                <div className="agent-name">BuilderDash</div>
+              </div>
             </div>
-            <div>Response time: Within 1 hour</div>
+
+            <div className="contact-actions">
+              <WhatsAppButton
+                message={`Hi, I'm interested in the property at ${property.title}`}
+                className="whatsapp-btn"
+              >
+                <FontAwesomeIcon icon={faWhatsapp} /> WhatsApp
+              </WhatsAppButton>
+              <a href={`tel:+1234567890`} className="call-btn">
+                <FontAwesomeIcon icon={faPhone} /> Call Now
+              </a>
+            </div>
+
+            <div className="listing-info">
+              <div>
+                Listed on{" "}
+                {new Date(property.createdAt || Date.now()).toLocaleDateString()}
+              </div>
+              <div>Response time: Within 1 hour</div>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Testimonials Section */}
-    
 
       {/* Fullscreen Image Viewer */}
       {fullscreen && (
