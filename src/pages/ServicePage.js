@@ -79,7 +79,6 @@ const ServicePage = () => {
                 alt={property.title || `Project ${i + 1}`}
               />
               <div className="gallery-overlay">
-                <p>Working Project</p>
               </div>
             </div>
           ))}

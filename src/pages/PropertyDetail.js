@@ -33,6 +33,19 @@ export default function PropertyDetail() {
     }
   }, [id]);
 
+  // Keyboard support for arrows
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (fullscreen) {
+        if (e.key === "ArrowRight") nextImage();
+        if (e.key === "ArrowLeft") prevImage();
+        if (e.key === "Escape") setFullscreen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [fullscreen, currentIndex, property]);
+
   if (!property) return <p className="loading">Property not found...</p>;
 
   const images = property.primaryImage
@@ -120,7 +133,7 @@ export default function PropertyDetail() {
 
         {/* RIGHT COLUMN */}
         <div className="right-column">
-          {/* ✅ Testimonials moved here */}
+          {/* Testimonials */}
           {property.testimonials && property.testimonials.length > 0 ? (
             <div className="property-testimonials">
               <h2 className="section-title">What Our Clients Say</h2>
