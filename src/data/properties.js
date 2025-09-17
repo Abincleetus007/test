@@ -9,11 +9,11 @@ const properties = [
     sqft: 3200,
     bedrooms: 4,
     bathrooms: 3,
-    primaryImage: "https://res.cloudinary.com/djhpllutc/image/upload/v1758115718/21d725d9-0502-4059-8404-78914106be95_xvo1vw.jpg", // main image
+    primaryImage: "https://res.cloudinary.com/djhpllutc/image/upload/v1758115717/de4e2aa1-1ed6-428f-8bda-50e6465c87b4_u5blwi.jpg", // main image
     images: [
       "https://res.cloudinary.com/djhpllutc/image/upload/v1758115717/3dcf5f3f-19fb-4f4c-afe5-d4b9a4bc29e7_eo0imc.jpg",
       "https://res.cloudinary.com/djhpllutc/image/upload/v1758115717/%E0%B4%88_design_%E0%B4%A8%E0%B5%86_%E0%B4%B5%E0%B5%80%E0%B4%9F%E0%B4%BE%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B4%BF%E0%B4%AF%E0%B4%BE%E0%B4%B2%E0%B5%8B__A_4BHK_home_with_bold_dqnxez.jpg",
-      "https://res.cloudinary.com/djhpllutc/image/upload/v1758115717/de4e2aa1-1ed6-428f-8bda-50e6465c87b4_u5blwi.jpg"
+      "https://res.cloudinary.com/djhpllutc/image/upload/v1758115718/21d725d9-0502-4059-8404-78914106be95_xvo1vw.jpg"
     ],
     videoTourLink: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     locationLink: "https://maps.google.com/?q=Kochi",
