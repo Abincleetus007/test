@@ -1,3 +1,27 @@
+/* === Search Bar Styling === */
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.search-bar-container input {
+  width: 60%;
+  max-width: 600px;
+  padding: 15px 20px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-bar-container input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(219, 222, 218, 0.3);
+}
+
+/* === Property Grid === */
 .home-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -14,6 +38,10 @@
     gap: 25px;
     padding: 25px;
   }
+
+  .search-bar-container input {
+    width: 75%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -22,6 +50,10 @@
     gap: 20px;
     padding: 20px;
   }
+
+  .search-bar-container input {
+    width: 90%;
+  }
 }
 
 @media (max-width: 480px) {
@@ -29,3 +61,34 @@
     grid-template-columns: 1fr;
   }
 }
+/* === Search Bar Styling === */
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  padding: 50px 50px;   /* spacing around */
+  background-color: #ff6600; /* orange background */
+}
+
+.search-bar-container input {
+  width: 60%;
+  max-width: 600px;
+  padding: 15px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-bar-container input:focus {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+/* === Search Bar Styling === */
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  background-color: #ff6600; /* orange background */
+  margin-top: 0;  /* remove any gap above */
+}
+

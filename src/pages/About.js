@@ -1,22 +1,26 @@
-import './About.css';
+import "./About.css";
 
 export default function About() {
   return (
     <div className="about-container">
-      <h1>About c Construction</h1>
+      <h1>About Crystal Construction</h1>
+
       <div className="about-content">
+        {/* Left Text */}
         <div className="about-text">
           <h2>Professional Construction & Interior Designing Company</h2>
           <p>
-            crystal CONSTRUCTIONS is committed to your comfort from start to finish, every step of the way. 
-            Our relation with you begins the first time you walk through our doors. From that time onwards 
+            Crystal Constructions is committed to your comfort from start to finish, every step of the way. 
+            Our relation with you begins the first time you walk through our doors. From that time onwards, 
             our family takes care of your family. That is our Philosophy.
           </p>
           <p>
-            crystal is committed to build innovative high quality, functional, sustainable and value for money 
-            homes backed by superior architecture technology and construction and prompt delivery for customers. 
-            We are dedicated to delivery homes that offer maximum satisfaction and value for money.
+            Crystal is committed to building innovative, high-quality, functional, sustainable, and 
+            value-for-money homes backed by superior architecture, technology, and prompt delivery. 
+            We are dedicated to delivering homes that offer maximum satisfaction.
           </p>
+
+          {/* Stats */}
           <div className="stats-container">
             <div className="stat-item">
               <h3>10+</h3>
@@ -36,10 +40,15 @@ export default function About() {
             </div>
           </div>
         </div>
-        
+
+        {/* Right Image */}
         <div className="about-image">
-          <div className="image-placeholder">
-            <i className="fas fa-building"></i>
+          <div className="image-box">
+            <img
+              src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80"
+              alt="Crystal Construction"
+            />
+            <div className="image-overlay"></div>
           </div>
         </div>
       </div>

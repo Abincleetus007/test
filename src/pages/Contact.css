@@ -1,122 +1,94 @@
+/* === Contact Container === */
 .contact-container {
-  padding: 40px 20px;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 50px 20px;
+  font-family: "Poppins", sans-serif;
 }
 
 .contact-container h1 {
   text-align: center;
-  color: #1a365d;
+  font-size: 36px;
   margin-bottom: 40px;
+  color: #333;
 }
 
+/* === Contact Content === */
 .contact-content {
   display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
   flex-wrap: wrap;
-  gap: 40px;
 }
 
-.contact-info, .contact-form {
+/* === Contact Info Section === */
+.contact-info {
   flex: 1;
   min-width: 300px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.contact-info h2, .contact-form h2 {
-  color: #1a365d;
-  margin-bottom: 25px;
+.contact-info h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #ff6600; /* orange accent */
 }
 
+/* === Contact Items === */
 .contact-item {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  font-size: 16px;
+  color: #444;
 }
 
 .contact-item i {
-  font-size: 1.2rem;
-  color: #1a365d;
+  font-size: 20px;
+  color: #ff6600;
   margin-right: 15px;
-  width: 24px;
 }
 
+/* === Actions (WhatsApp + Call Button) === */
 .contact-actions {
+  margin-top: 30px;
   display: flex;
   gap: 15px;
-  margin-top: 30px;
   flex-wrap: wrap;
 }
 
-.whatsapp-btn, .call-btn {
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  font-weight: 500;
-  cursor: pointer;
+/* Call Button */
+.call-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  padding: 12px 20px;
+  background-color: #ff6600;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
   text-decoration: none;
-  font-size: 1rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
+.call-btn:hover {
+  background-color: #e65c00;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.25);
+}
+
+.call-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+}
+
+/* WhatsApp Button override (reuse your WhatsAppButton.css) */
 .whatsapp-btn {
-  background-color: #25D366;
-  color: white;
-}
-
-.call-btn {
-  background-color: #1a365d;
-  color: white;
-}
-
-.contact-form form {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  margin-bottom: 15px;
-}
-
-input, select, textarea {
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 1rem;
-  font-family: inherit;
-}
-
-textarea {
-  height: 120px;
-  margin-bottom: 20px;
-  resize: vertical;
-}
-
-.submit-btn {
-  background-color: #ffc107;
-  color: #333;
-  border: none;
-  padding: 12px 30px;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.submit-btn:hover {
-  background-color: #ffb300;
-}
-
-@media (max-width: 768px) {
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-  
-  .contact-actions {
-    flex-direction: column;
-  }
+  background-color: #25d366 !important; /* WhatsApp green */
 }
