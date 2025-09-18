@@ -14,8 +14,8 @@ const HomePage = () => {
     
 
       {/* Hero Section */}
-      <section id="home" className="hero-section">
-        <div className="hero-content">
+      <section id="home" className="hero-section" data-aos="fade-down">
+        <div className="hero-content" >
           <h1>THE BUILDER</h1>
           <p>ARCHITECTS | INTERIOR | CONSTRUCTION & CONTRACTING</p>
           <button

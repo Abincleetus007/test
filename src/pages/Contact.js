@@ -2,6 +2,10 @@ import { useState } from 'react';
 import WhatsAppButton from '../components/WhatsAppButton';
 import './Contact.css';
 
+// ✅ Import Font Awesome React Components
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPhone, faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
@@ -20,7 +24,6 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
     console.log('Form submitted:', formData);
     alert('Thank you for your message. We will contact you soon!');
   };
@@ -31,28 +34,36 @@ export default function Contact() {
       <div className="contact-content">
         <div className="contact-info">
           <h2>Get In Touch</h2>
+
+          {/* Phone */}
           <div className="contact-item">
-            <i className="fas fa-phone"></i>
+            <FontAwesomeIcon icon={faPhone} className="contact-icon" />
             <div>
-              <p>+910000000</p>
+              <p>+91 0000000</p>
               <p>+91 ooooo</p>
             </div>
           </div>
+
+          {/* Email */}
           <div className="contact-item">
-            <i className="fas fa-envelope"></i>
+            <FontAwesomeIcon icon={faEnvelope} className="contact-icon" />
             <p>info@</p>
           </div>
+
+          {/* Location */}
           <div className="contact-item">
-            <i className="fas fa-map-marker-alt"></i>
+            <FontAwesomeIcon icon={faMapMarkerAlt} className="contact-icon" />
             <p>Kerala, India</p>
           </div>
+
+          {/* Actions */}
           <div className="contact-actions">
             <WhatsAppButton 
               message="Hi, I'm interested in your construction services. Can you provide more information?"
               className="whatsapp-btn"
             />
             <a href="tel:+00000000" className="call-btn">
-              <i className="fas fa-phone"></i> Call Now
+              <FontAwesomeIcon icon={faPhone} className="contact-icon" /> Call Now
             </a>
           </div>
         </div>
