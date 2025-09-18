@@ -181,34 +181,58 @@ const HomePage = () => {
 
       {/* Footer */}
       <footer className="footer">
-        <div className="container">
-          <div className="footer-content">
-            <div className="footer-section">
-              <h3>cr</h3>
-              <p>The Builder</p>
-              <p>Professional Construction & Interior Designing Company</p>
-            </div>
-            <div className="footer-section">
-              <h4>Services</h4>
-              <ul>
-                <li>Construction</li>
-                <li>Interior Design</li>
-                <li>Architecture</li>
-                <li>Consultation</li>
-              </ul>
-            </div>
-            <div className="footer-section">
-              <div className="social-icons">
-                <a href="#"><FontAwesomeIcon icon={faFacebookF} /></a>
-                <a href="#"><FontAwesomeIcon icon={faInstagram} /></a>
-              </div>
-            </div>
-          </div>
-          <div className="footer-bottom">
-            <p>&copy; 2023 The Builder. All rights reserved.</p>
-          </div>
+  <div className="footer-top container">
+    <div className="footer-col about">
+      <h3>The Builder</h3>
+      <p>Professional Construction & Interior Designing Company</p>
+      <p>Address: Your full address here</p>
+      <p>Phone: +91 00000000 | Email: info@builder.com</p>
+    </div>
+
+    <div className="footer-col links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div className="footer-col social-and-stats">
+      <h4>Stay Connected</h4>
+      <div className="social-icons">
+        <a href="#"><FontAwesomeIcon icon={faFacebookF} /></a>
+        <a href="#"><FontAwesomeIcon icon={faInstagram} /></a>
+        <a href="#"><FontAwesomeIcon icon={faWhatsapp} /></a>
+      </div>
+
+      {/* Optional stats block */}
+      <div className="footer-stats">
+        <div className="stat">
+          <span className="stat-number">10+</span>
+          <span className="stat-label">Years In Business</span>
         </div>
-      </footer>
+        <div className="stat">
+          <span className="stat-number">250+</span>
+          <span className="stat-label">Happy Clients</span>
+        </div>
+        <div className="stat">
+          <span className="stat-number">200+</span>
+          <span className="stat-label">Projects Completed</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div className="footer-bottom container">
+    <p>© {new Date().getFullYear()} The Builder. All rights reserved.</p>
+    <p>Designed by YourName / Your Company</p>
+  </div>
+</footer>
+
     </div>
   );
 };

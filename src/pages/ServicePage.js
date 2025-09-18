@@ -1,8 +1,8 @@
 // src/pages/ServicePage.jsx
-import React from "react";
-import { useNavigate } from "react-router-dom"; // ✅ import useNavigate
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 import "./ServicePage.css";
-import propertiesData from "../data/properties"; // import your property data
+import propertiesData from "../data/properties"; 
 
 const serviceBlocks = [
   {
@@ -31,7 +31,13 @@ const serviceBlocks = [
 const experienceItems = ["Design Approach", "Innovative Solutions", "Project Management"];
 
 const ServicePage = () => {
-  const navigate = useNavigate(); // ✅ define navigate
+  const navigate = useNavigate();
+  const [showAll, setShowAll] = useState(false);
+
+  // show first 5 images unless "View More" clicked
+  const displayedProperties = showAll
+    ? propertiesData
+    : propertiesData.slice(0, 5);
 
   return (
     <div className="service-page">
@@ -68,27 +74,44 @@ const ServicePage = () => {
         </div>
       </section>
 
-      {/* Gallery Section (fetch dynamically from propertiesData) */}
+      {/* Gallery Section */}
       <section className="gallery-section">
         <h2>Inspiration for Your Next Project</h2>
         <div className="gallery-grid">
-          {propertiesData.map((property, i) => (
-            <div className="gallery-card" key={i}>
+          {displayedProperties.map((property, i) => (
+            <div
+              className="gallery-card"
+              key={property.id || i}
+              onClick={() => navigate(`/property/${property.id || i}`)}
+              style={{ cursor: "pointer" }}
+            >
               <img
                 src={property.image || property.images?.[0]}
                 alt={property.title || `Project ${i + 1}`}
               />
-              <div className="gallery-overlay">
-              </div>
+              <div className="gallery-overlay"></div>
             </div>
           ))}
         </div>
 
-        {/* ✅ View More button goes to Home.js (/projects) */}
+        {/* View More button */}
         <div className="view-more-container">
-          <button className="btn-view-more" onClick={() => navigate("/projects")}>
-            View More
-          </button>
+          {!showAll && (
+            <button
+              className="btn-view-more"
+              onClick={() => setShowAll(true)}
+            >
+              View More
+            </button>
+          )}
+          {showAll && (
+            <button
+              className="btn-view-more"
+              onClick={() => navigate("/projects")}
+            >
+              View All Projects
+            </button>
+          )}
         </div>
       </section>
 

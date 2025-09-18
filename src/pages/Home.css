@@ -22,14 +22,40 @@
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
+
+/* Hero section (blue background) */
+.hero-section {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding-top: 3cm; /* ⬅️ push content down */
+}
+
+/* Search Bar container */
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 3cm; /* ⬅️ OR apply margin here if you want only the bar lower */
+}
+
+
 /* ================== Property Grid ================== */
 .home-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 30px;
-  padding: 30px;
+  padding: px;
   max-width: 1400px;
-  margin: 0 auto;
+  margin:0 auto;
   background-color: #f8f9fa;
 }
 
@@ -67,7 +93,7 @@
 /* ================== Property Card Styling (Gallery-like) ================== */
 .property-card {
   background: #fff;
-  border-radius: 8px;
+  border-radius: 4px;
   overflow: hidden;
   box-shadow: 0 px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
@@ -206,5 +232,57 @@
 @media (max-width: 480px) {
   .property-card img {
     height: auto;
+  }
+}
+/* ================== Search Bar Styling ================== */
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* spacing between inputs */
+  flex-wrap: wrap; /* stack on smaller screens */
+  padding: 20px;
+  background-color: #ff6600; /* orange background */
+  margin-top: 0;
+  border-radius: 8px;
+}
+
+.search-bar-container input,
+.search-bar-container select {
+  padding: 12px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar-container input:focus,
+.search-bar-container select:focus {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.search-bar-container input {
+  width: 250px; /* search input width */
+  max-width: 100%;
+}
+
+.search-bar-container select {
+  min-width: 150px;
+  cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .search-bar-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-bar-container input,
+  .search-bar-container select {
+    width: 100%;
   }
 }
