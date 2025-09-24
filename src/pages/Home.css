@@ -95,7 +95,6 @@
   background: #fff;
   border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -108,10 +107,10 @@
 /* Property image - gallery style */
 /* ================== Property Card Styling ================== */
 .property-card {
-  background: #fff;
+  background: #faf9f9;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;

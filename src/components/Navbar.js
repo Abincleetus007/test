@@ -26,11 +26,14 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-container">
-        {/* Logo */}
-        <div className="nav-logo">
-          <h2>B</h2>
-          <span>The Builder</span>
-        </div>
+       {/* Logo */}
+<div className="nav-logo" onClick={() => setActiveSection("home")}>
+  <Link to="/" className="logo-link">
+    <h2>B</h2>
+    <span>The Builder</span>
+  </Link>
+</div>
+
 
         {/* Hamburger (mobile) */}
         <div
