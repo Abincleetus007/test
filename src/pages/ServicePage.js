@@ -75,45 +75,47 @@ const ServicePage = () => {
       </section>
 
       {/* Gallery Section */}
-      <section className="gallery-section">
-        <h2>Inspiration for Your Next Project</h2>
-        <div className="gallery-grid">
-          {displayedProperties.map((property, i) => (
-            <div
-              className="gallery-card"
-              key={property.id || i}
-              onClick={() => navigate(`/property/${property.id || i}`)}
-              style={{ cursor: "pointer" }}
-            >
-              <img
-                src={property.image || property.images?.[0]}
-                alt={property.title || `Project ${i + 1}`}
-              />
-              <div className="gallery-overlay"></div>
-            </div>
-          ))}
-        </div>
+      {/* Gallery Section */}
+<section className="gallery-section">
+  <h2>Inspiration for Your Next Project</h2>
+  <div className="gallery-grid">
+    {displayedProperties.map((property) => (
+      <div
+        key={property._id} // use _id from your data
+        className="gallery-card"
+        onClick={() => navigate(`/property/${property._id}`)} // navigate using _id
+        style={{ cursor: "pointer" }}
+      >
+        <img
+          src={property.primaryImage || property.images?.[0]} // show primaryImage first
+          alt={property.title}
+        />
+        <div className="gallery-overlay"></div>
+      </div>
+    ))}
+  </div>
 
-        {/* View More button */}
-        <div className="view-more-container">
-          {!showAll && (
-            <button
-              className="btn-view-more"
-              onClick={() => setShowAll(true)}
-            >
-              View More
-            </button>
-          )}
-          {showAll && (
-            <button
-              className="btn-view-more"
-              onClick={() => navigate("/projects")}
-            >
-              View All Projects
-            </button>
-          )}
-        </div>
-      </section>
+  {/* View More button */}
+  <div className="view-more-container">
+    {!showAll && displayedProperties.length < propertiesData.length && (
+      <button
+        className="btn-view-more"
+        onClick={() => setShowAll(true)}
+      >
+        View More
+      </button>
+    )}
+    {showAll && (
+      <button
+        className="btn-view-more"
+        onClick={() => navigate("/projects")}
+      >
+        View All Projects
+      </button>
+    )}
+  </div>
+</section>
+
 
       {/* Contact Info */}
       <section className="contact-info-section">

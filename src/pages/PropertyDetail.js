@@ -162,7 +162,7 @@ export default function PropertyDetail() {
               </div>
             </div>
           ) : (
-            <p className="no-testimonials">No testimonials yet for this property.</p>
+            <p className="no-testimonials"></p>
           )}
 
           {/* Agent Contact */}

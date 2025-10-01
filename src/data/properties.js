@@ -2,7 +2,7 @@
 
 const properties = [
   {
-    _id: "1",
+    _id:"1" ,
     title: "Luxury Villa in Kochi",
     description: "A beautiful luxury villa with modern amenities.",
     price: 15000000,
