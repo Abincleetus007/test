@@ -3,6 +3,8 @@ import "./HomePage.css";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import BeforeAfterSlider from "../pages/BeforeAfterSlider";
+import FloatingEnquiry from "../components/FloatingEnquiry";
+
 
 // Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -82,6 +84,7 @@ const HomePage = () => {
           </button>
         </div>
       </section>
+<FloatingEnquiry />
 
       {/* About Section */}
       <section id="about" className="about-section">

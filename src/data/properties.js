@@ -42,7 +42,6 @@ const properties = [
     bathrooms: 2,
     primaryImage: "https://res.cloudinary.com/djhpllutc/image/upload/v1758115613/house_contemporary_homedesign_kerala_h8j2jo.jpg",
     images: [
-      "https://res.cloudinary.com/djhpllutc/image/upload/v1758115613/A_charming_house_with_tiled_roof_and_wooden_nl5ykt.jpg",
       "https://res.cloudinary.com/djhpllutc/image/upload/v1758115612/Kerala_house_design_kw5obm.jpg",
       "https://res.cloudinary.com/djhpllutc/image/upload/v1758115612/91407cc0-a238-4b80-b7ac-d8892384438f_fyoymd.jpg",
       "https://res.cloudinary.com/djhpllutc/image/upload/v1758115612/84660b08-d861-4756-a27e-e9d442a7de2f_smwiql.jpg"

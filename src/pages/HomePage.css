@@ -206,19 +206,38 @@ body, html {
   margin-top: 20px;
 }
 
+/* Contact buttons (original brand colors) */
 .contact-logo-btn {
-  border: none;
-  background: #ff6600;
-  padding: 12px;
+  width: 60px;                /* size like floating icon */
+  height: 60px;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
   color: #fff;
+  border: none;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Hover effect */
 .contact-logo-btn:hover {
-  background: #ff3300;
-  transform: scale(1.1);
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Individual brand colors */
+.contact-logo-btn:nth-child(1) { /* WhatsApp */
+  background-color: #25d366;
+}
+
+.contact-logo-btn:nth-child(2) { /* Phone / Call */
+  background-color: #0a66c2;
+}
+
+.contact-logo-btn:nth-child(3) { /* Map / Location */
+  background-color: #ff3300;
 }
 
 /* ================== Testimonials Section ================== */
@@ -310,16 +329,6 @@ body, html {
 
 /* ================== Animista Animations ================== */
 
-/* rotate-in-center */
-@-webkit-keyframes rotate-in-center {
-  0% { -webkit-transform: rotate(-360deg); transform: rotate(-360deg); opacity: 0; }
-  100% { -webkit-transform: rotate(0); transform: rotate(0); opacity: 1; }
-}
-@keyframes rotate-in-center {
-  0% { -webkit-transform: rotate(-360deg); transform: rotate(-360deg); opacity: 0; }
-  100% { -webkit-transform: rotate(0); transform: rotate(0); opacity: 1; }
-}
-
 /* tracking-in-expand */
 @-webkit-keyframes tracking-in-expand {
   0% { letter-spacing: -0.5em; opacity: 0; }
@@ -374,15 +383,7 @@ body, html {
   100% { -webkit-transform:translateY(0); transform:translateY(0); -webkit-animation-timing-function:ease-out; animation-timing-function:ease-out; opacity:1; }
 }
 
-/* rotate-in-2-br-cw */
-@-webkit-keyframes rotate-in-2-br-cw {
-  0% { -webkit-transform: rotate(-45deg); transform: rotate(-45deg); -webkit-transform-origin:100% 100%; transform-origin:100% 100%; opacity:0; }
-  100% { -webkit-transform: rotate(0); transform: rotate(0); -webkit-transform-origin:100% 100%; transform-origin:100% 100%; opacity:1; }
-}
-@keyframes rotate-in-2-br-cw {
-  0% { -webkit-transform: rotate(-45deg); transform: rotate(-45deg); -webkit-transform-origin:100% 100%; transform-origin:100% 100%; opacity:0; }
-  100% { -webkit-transform: rotate(0); transform: rotate(0); -webkit-transform-origin:100% 100%; transform-origin:100% 100%; opacity:1; }
-}
+
  
 
 
