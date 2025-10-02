@@ -385,5 +385,24 @@ body, html {
 
 
  
+.about-images, .contact-images {
+  flex: 1 1 300px; /* flex-grow, flex-shrink, flex-basis */
+  min-width: 280px; /* minimum width so image doesn’t collapse */
+}
+
+.about-img, .contact-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;      /* prevent disappearing inline-block issues */
+  border-radius: 12px;
+}
+
+.about-container, .contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: flex-start; /* safer than center at extreme zoom */
+}
 
 
