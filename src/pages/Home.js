@@ -1,20 +1,16 @@
 // src/pages/Home.js
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; 
-import PropertyCard from "../components/PropertyCard";
+import { useNavigate, Link } from "react-router-dom"; 
 import propertiesData from "../data/properties"; 
-import "./Home.css";
 import Footer from "../components/footer";
-
+import "./Home.css";
 
 export default function Home() {
   const [properties, setProperties] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [showAll, setShowAll] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
-    // Load local properties data
     setProperties(propertiesData);
   }, []);
 
@@ -29,11 +25,6 @@ export default function Home() {
 
   // Show only first 6 if showAll is false
   const displayedProperties = showAll ? filteredProperties : filteredProperties.slice(0, 6);
-
-  // Navigate to property detail
-  const handlePropertyClick = (id) => {
-    navigate(`/property/${id}`);
-  };
 
   return (
     <div className="home-page">
@@ -53,18 +44,21 @@ export default function Home() {
         <div className="gallery-grid">
           {displayedProperties.length > 0 ? (
             displayedProperties.map((property) => (
-              <div
-                key={property._id}
-                className="gallery-card"
-                onClick={() => handlePropertyClick(property._id)}
-                style={{ cursor: "pointer" }}
+              <Link 
+                to={`/property/${property._id}`} 
+                key={property._id} 
+                className="gallery-card-link"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               >
-                <img
-                  src={property.primaryImage || property.images?.[0]}
-                  alt={property.title}
-                />
-                <div className="gallery-overlay"></div>
-              </div>
+                <div className="gallery-card">
+                  <img
+                    src={property.primaryImage || property.images?.[0]}
+                    alt={property.title}
+                  />
+                  {/* Optional overlay or caption */}
+                  <div className="gallery-overlay"></div>
+                </div>
+              </Link>
             ))
           ) : (
             <p>No properties found.</p>
@@ -79,15 +73,15 @@ export default function Home() {
             </button>
           )}
           {showAll && (
-            <button className="btn-view-more" onClick={() => navigate("/projects")}>
-              View All Projects
-            </button>
+            <Link to="/projects">
+              <button className="btn-view-more">View All Projects</button>
+            </Link>
           )}
         </div>
       </section>
+
       {/* Footer */}
-<footer className="footer"> <Footer />
- </footer>
+      <Footer />
     </div>
   );
 }
