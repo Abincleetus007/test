@@ -143,7 +143,6 @@
   color: #555;
   line-height: 1.5;
 }
-
 /* ================== Gallery Section ================== */
 .gallery-section {
   padding: 60px 20px;
@@ -163,49 +162,66 @@
   margin: auto;
 }
 
+.gallery-card-link {
+  text-decoration: none;
+}
+
 .gallery-card {
   position: relative;
   border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-/* ✅ Remove black shade */
-.gallery-overlay {
-  background: transparent !important;
+.gallery-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
 }
 
-/* ✅ Hover or touch prompt */
+.gallery-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Overlay text */
 .gallery-card::after {
-  content: "Click to view details";
+  content: "CLICK TO VIEW DETAILS";
   position: absolute;
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.9); /* orange badge */
-  color: white;
+  color: #ff6600; /* text color */
+  font-weight: bold;
+  font-size: 0.95rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8); /* light background */
   padding: 6px 10px;
   border-radius: 6px;
-  font-size: 0.9rem;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.gallery-card:hover::after {
-  opacity: 1;
-}
-
-/* ✅ Always visible on touch devices (mobile) */
-@media (hover: none) and (pointer: coarse) {
-  .gallery-card::after {
+/* Show overlay on hover (desktop) */
+@media (hover: hover) {
+  .gallery-card:hover::after {
     opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
   }
 }
 
-.view-more-container {
-  text-align: center;
-  margin-top: 30px;
+/* Always show overlay on mobile */
+@media (max-width: 768px) {
+  .gallery-card::after {
+    opacity: 1;
+    bottom: 15px;
+    font-size: 0.9rem;
+    transform: translateX(-50%);
+  }
 }
+
 
 /* ================== Responsive adjustments ================== */
 @media (max-width: 1024px),

@@ -1,16 +1,18 @@
 // src/pages/Home.js
 import { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom"; 
-import propertiesData from "../data/properties"; 
-import Footer from "../components/footer";
+import { useNavigate } from "react-router-dom";
+import PropertyCard from "../components/PropertyCard";
+import propertiesData from "../data/properties";
 import "./Home.css";
 
 export default function Home() {
   const [properties, setProperties] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [showAll, setShowAll] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
+    // Load local properties data (can be replaced with API call later)
     setProperties(propertiesData);
   }, []);
 
@@ -26,13 +28,18 @@ export default function Home() {
   // Show only first 6 if showAll is false
   const displayedProperties = showAll ? filteredProperties : filteredProperties.slice(0, 6);
 
+  // Navigate to property detail
+  const handlePropertyClick = (id) => {
+    navigate(`/property/${id}`);
+  };
+
   return (
     <div className="home-page">
       {/* Search Bar */}
       <div className="search-bar-container">
         <input
           type="text"
-          placeholder="Search by number of bedrooms..."
+          placeholder="Search by number of bedrooms or title..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
@@ -44,28 +51,24 @@ export default function Home() {
         <div className="gallery-grid">
           {displayedProperties.length > 0 ? (
             displayedProperties.map((property) => (
-              <Link 
-                to={`/property/${property._id}`} 
-                key={property._id} 
-                className="gallery-card-link"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              <div
+                key={property._id}
+                className="gallery-card"
+                onClick={() => handlePropertyClick(property._id)}
               >
-                <div className="gallery-card">
-                  <img
-                    src={property.primaryImage || property.images?.[0]}
-                    alt={property.title}
-                  />
-                  {/* Optional overlay or caption */}
-                  <div className="gallery-overlay"></div>
-                </div>
-              </Link>
+                <img
+                  src={property.primaryImage || property.images?.[0]}
+                  alt={property.title}
+                />
+                <div className="gallery-overlay"></div>
+              </div>
             ))
           ) : (
             <p>No properties found.</p>
           )}
         </div>
 
-        {/* View More Button */}
+        {/* View More / View All Projects Button */}
         <div className="view-more-container">
           {!showAll && filteredProperties.length > 6 && (
             <button className="btn-view-more" onClick={() => setShowAll(true)}>
@@ -73,15 +76,12 @@ export default function Home() {
             </button>
           )}
           {showAll && (
-            <Link to="/projects">
-              <button className="btn-view-more">View All Projects</button>
-            </Link>
+            <button className="btn-view-more" onClick={() => navigate("/projects")}>
+              View All Projects
+            </button>
           )}
         </div>
       </section>
-
-      {/* Footer */}
-      <Footer />
     </div>
   );
 }
