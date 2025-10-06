@@ -65,7 +65,7 @@ const ServicePage = () => {
 
       {/* Experience Section */}
       <section className="experience-section">
-        <h2>25 Years Of Experience In Architecture Industry</h2>
+        <h2>10 Years Of Experience In Architecture Industry</h2>
         <div className="experience-grid">
           {experienceItems.map((item, i) => (
             <div className="experience-item" key={i}>

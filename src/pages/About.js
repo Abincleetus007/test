@@ -35,10 +35,7 @@ export default function About() {
               <h3>270+</h3>
               <p>Projects Completed</p>
             </div>
-            <div className="stat-item">
-              <h3>150+</h3>
-              <p>Trained Staff</p>
-            </div>
+          
           </div>
         </div>
 
@@ -53,9 +50,7 @@ export default function About() {
           </div>
         </div>
       </div>
-      {/* Footer */}
-<footer className="footer"> <Footer />
- </footer>
+      
     </div>
   );
 }

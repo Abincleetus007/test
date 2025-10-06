@@ -68,9 +68,7 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      {/* Footer */}
-<footer className="footer"> <Footer />
- </footer>
+     
     </div>
   );
 }

@@ -80,7 +80,7 @@ const HomePage = () => {
         style={{ backgroundImage: `url(${heroImages[currentImage]})` }}
       >
         <div className="hero-content">
-          <h1>THE BUILDER</h1>
+          <h1> CRYSTAL BUILDERS</h1>
           <p>ARCHITECTS | INTERIOR | CONSTRUCTION & CONTRACTING</p>
           <button className="hero-btn" onClick={() => navigate("/projects")}>
             Explore Our Works
@@ -96,7 +96,7 @@ const HomePage = () => {
             <h1>ABOUT US</h1>
             <h2>Professional Construction & Interior Designing Company</h2>
             <p>
-              Crystal Constructions is committed to your comfort from start to finish. 
+              Crystal Builders is committed to your comfort from start to finish. 
               From the time you walk through our doors, our family takes care of your 
               family. That is our Philosophy.
             </p>
@@ -118,10 +118,7 @@ const HomePage = () => {
                 <h3>270+</h3>
                 <p>Projects Completed</p>
               </div>
-              <div className="stat-item">
-                <h3>150+</h3>
-                <p>Trained Staff</p>
-              </div>
+              
             </div>
           </div>
           <div className="about-images">
