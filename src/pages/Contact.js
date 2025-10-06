@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import WhatsAppButton from '../components/WhatsAppButton';
 import './Contact.css';
-
+import Footer from "../components/footer";
 // ✅ Import Font Awesome React Components
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
@@ -68,6 +68,9 @@ export default function Contact() {
           </div>
         </div>
       </div>
+      {/* Footer */}
+<footer className="footer"> <Footer />
+ </footer>
     </div>
   );
 }

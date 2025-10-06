@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import "./ServicePage.css";
 import propertiesData from "../data/properties"; 
+import Footer from "../components/footer";
 
 const serviceBlocks = [
   {
@@ -34,10 +35,10 @@ const ServicePage = () => {
   const navigate = useNavigate();
   const [showAll, setShowAll] = useState(false);
 
-  // show first 5 images unless "View More" clicked
+  // Show first 4 images unless "View More" clicked
   const displayedProperties = showAll
     ? propertiesData
-    : propertiesData.slice(0, 5);
+    : propertiesData.slice(0, 4);
 
   return (
     <div className="service-page">
@@ -75,47 +76,45 @@ const ServicePage = () => {
       </section>
 
       {/* Gallery Section */}
-      {/* Gallery Section */}
-<section className="gallery-section">
-  <h2>Inspiration for Your Next Project</h2>
-  <div className="gallery-grid">
-    {displayedProperties.map((property) => (
-      <div
-        key={property._id} // use _id from your data
-        className="gallery-card"
-        onClick={() => navigate(`/property/${property._id}`)} // navigate using _id
-        style={{ cursor: "pointer" }}
-      >
-        <img
-          src={property.primaryImage || property.images?.[0]} // show primaryImage first
-          alt={property.title}
-        />
-        <div className="gallery-overlay"></div>
-      </div>
-    ))}
-  </div>
+      <section className="gallery-section">
+        <h2>Inspiration for Your Next Project</h2>
+        <div className="gallery-grid">
+          {displayedProperties.map((property) => (
+            <div
+              key={property._id}
+              className="gallery-card"
+              onClick={() => navigate(`/property/${property._id}`)}
+              style={{ cursor: "pointer" }}
+            >
+              <img
+                src={property.primaryImage || property.images?.[0]}
+                alt={property.title}
+              />
+              <div className="gallery-overlay"></div>
+            </div>
+          ))}
+        </div>
 
-  {/* View More button */}
-  <div className="view-more-container">
-    {!showAll && displayedProperties.length < propertiesData.length && (
-      <button
-        className="btn-view-more"
-        onClick={() => setShowAll(true)}
-      >
-        View More
-      </button>
-    )}
-    {showAll && (
-      <button
-        className="btn-view-more"
-        onClick={() => navigate("/projects")}
-      >
-        View All Projects
-      </button>
-    )}
-  </div>
-</section>
-
+        {/* View More / View All Projects Button */}
+        <div className="view-more-container">
+          {!showAll && displayedProperties.length < propertiesData.length && (
+            <button
+              className="btn-view-more"
+              onClick={() => setShowAll(true)}
+            >
+              View More
+            </button>
+          )}
+          {showAll && (
+            <button
+              className="btn-view-more"
+              onClick={() => navigate("/projects")}
+            >
+              View All Projects
+            </button>
+          )}
+        </div>
+      </section>
 
       {/* Contact Info */}
       <section className="contact-info-section">
@@ -127,6 +126,9 @@ const ServicePage = () => {
           <p>info@</p>
         </div>
       </section>
+      {/* Footer */}
+<footer className="footer"> <Footer />
+ </footer>
     </div>
   );
 };

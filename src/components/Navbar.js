@@ -1,14 +1,13 @@
-// src/components/Navbar.js
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import logo from "../data/logo.png"; // adjust path if needed
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Scroll listener for background change
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -17,7 +16,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menu when clicking a nav link
   const handleNavClick = (section) => {
     setActiveSection(section);
     setMenuOpen(false);
@@ -26,11 +24,15 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-container">
-       {/* Logo */}
-<div className="nav-logo" onClick={() => setActiveSection("home")}>
+        {/* Logo */}
+        <div className="nav-logo" onClick={() => setActiveSection("home")}>
   <Link to="/" className="logo-link">
-    <h2>B</h2>
-    <span>The Builder</span>
+    <img 
+      src={require("../data/logo.png")} 
+      alt="Crystal Builders Logo" 
+      className="logo-img"
+    />
+    <span className="logo-text">Crystal Builders</span>
   </Link>
 </div>
 
@@ -45,7 +47,7 @@ const Navbar = () => {
           <span></span>
         </div>
 
-        {/* Overlay (click to close) */}
+        {/* Overlay */}
         {menuOpen && <div className="overlay" onClick={() => setMenuOpen(false)}></div>}
 
         {/* Menu */}
@@ -59,7 +61,7 @@ const Navbar = () => {
               Home
             </Link>
           </li>
-           <li className="nav-item">
+          <li className="nav-item">
             <Link
               to="/services"
               className={activeSection === "services" ? "nav-link active" : "nav-link"}
@@ -77,7 +79,6 @@ const Navbar = () => {
               Projects
             </Link>
           </li>
-         
           <li className="nav-item">
             <Link
               to="/about"

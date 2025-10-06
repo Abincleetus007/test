@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import PropertyCard from "../components/PropertyCard";
 import propertiesData from "../data/properties"; 
 import "./Home.css";
+import Footer from "../components/footer";
+
 
 export default function Home() {
   const [properties, setProperties] = useState([]);
@@ -39,7 +41,7 @@ export default function Home() {
       <div className="search-bar-container">
         <input
           type="text"
-          placeholder="Search properties by title or number of bedrooms..."
+          placeholder="Search by number of bedrooms..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
@@ -83,6 +85,9 @@ export default function Home() {
           )}
         </div>
       </section>
+      {/* Footer */}
+<footer className="footer"> <Footer />
+ </footer>
     </div>
   );
 }

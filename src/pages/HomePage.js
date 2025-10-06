@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import BeforeAfterSlider from "../pages/BeforeAfterSlider";
 import FloatingEnquiry from "../components/FloatingEnquiry";
+import Footer from "../components/footer";
 
 
 // Font Awesome
@@ -54,6 +55,8 @@ const HomePage = () => {
   const handlePropertyClick = (id) => {
     navigate(`/property/${id}`);
   };
+  const [currentIndex, setCurrentIndex] = useState(0);
+
 
   // Auto change hero image every 5s
   useEffect(() => {
@@ -66,7 +69,7 @@ const HomePage = () => {
   // Show first 5 gallery images unless "View More"
   const displayedProperties = showAll
     ? propertiesData
-    : propertiesData.slice(0, 5);
+    : propertiesData.slice(0, 4);
 
   return (
     <div className="home-page">
@@ -134,45 +137,60 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Gallery Section */}
-     {/* Gallery Section */}
+{/* Gallery Section */}
+{/* Gallery Section */}
 <section className="gallery-section">
   <h2>Inspiration for Your Next Project</h2>
-  <div className="gallery-grid">
-    {displayedProperties.length > 0 ? (
-      displayedProperties.map((property) => (
-        <div
-          key={property._id}
-          className="gallery-card"
-          onClick={() => handlePropertyClick(property._id)}
-          style={{ cursor: "pointer" }}
-        >
-          <img
-            src={property.primaryImage || property.images?.[0]}
-            alt={property.title}
-          />
-          <div className="gallery-overlay"></div>
-        </div>
-      ))
-    ) : (
-      <p>No properties found.</p>
+
+  <div className="gallery-wrapper">
+    {/* Left Arrow */}
+    {currentIndex > 0 && (
+      <button className="gallery-arrow left" onClick={() => setCurrentIndex(currentIndex - 1)}>
+        &#10094;
+      </button>
+    )}
+
+    {/* Gallery Grid */}
+    <div className="gallery-grid">
+      {propertiesData
+        .slice(currentIndex, currentIndex + 4) // show 5 items
+        .map((property) => (
+          <div
+            key={property._id}
+            className="gallery-card"
+            onClick={() => handlePropertyClick(property._id)}
+            style={{ cursor: "pointer" }}
+          >
+            <img
+              src={property.primaryImage || property.images?.[0]}
+              alt={property.title}
+            />
+            <div className="gallery-overlay"></div>
+          </div>
+        ))}
+    </div>
+
+    {/* Right Arrow */}
+    {currentIndex + 4 < propertiesData.length && (
+      <button className="gallery-arrow right" onClick={() => setCurrentIndex(currentIndex + 1)}>
+        &#10095;
+      </button>
     )}
   </div>
 
-  {/* View More Button */}
+
+  {/* Buttons Section */}
   <div className="view-more-container">
-    {!showAll && displayedProperties.length < propertiesData.length && (
-      <button className="btn-view-more" onClick={() => setShowAll(true)}>
-        View More
-      </button>
-    )}
-    {showAll && (
-      <button className="btn-view-more" onClick={() => navigate("/projects")}>
-        View All Projects
-      </button>
-    )}
+    
+
+    {/* 🔹 New Button to Go to Projects */}
+    <button className="btn-go-projects" onClick={() => navigate("/projects")}>
+     View more
+    </button>
   </div>
 </section>
+
+
 
 
       {/* Before & After Slider Section */}
@@ -279,58 +297,11 @@ const HomePage = () => {
         <TestimonialPage />
       </div>
 
+     
       {/* Footer */}
-      <footer className="footer">
-        <div className="footer-top container">
-          <div className="footer-col about">
-            <h3>The Builder</h3>
-            <p>Professional Construction & Interior Designing Company</p>
-            <p>Address: Your full address here</p>
-            <p>Phone: +91 00000000 | Email: info@builder.com</p>
-          </div>
+<footer className="footer"> <Footer />
+ </footer>
 
-          <div className="footer-col links">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="/about">About Us</a></li>
-              <li><a href="/services">Services</a></li>
-              <li><a href="/projects">Projects</a></li>
-              <li><a href="/contact">Contact</a></li>
-              <li><a href="/before-after">Before & After</a></li>
-            </ul>
-          </div>
-
-          <div className="footer-col social-and-stats">
-            <h4>Stay Connected</h4>
-            <div className="social-icons">
-              <a href="#"><FontAwesomeIcon icon={faFacebookF} /></a>
-              <a href="#"><FontAwesomeIcon icon={faInstagram} /></a>
-              <a href="#"><FontAwesomeIcon icon={faWhatsapp} /></a>
-            </div>
-
-            <div className="footer-stats">
-              <div className="stat">
-                <span className="stat-number">10+</span>
-                <span className="stat-label">Years In Business</span>
-              </div>
-              <div className="stat">
-                <span className="stat-number">250+</span>
-                <span className="stat-label">Happy Clients</span>
-              </div>
-              <div className="stat">
-                <span className="stat-number">200+</span>
-                <span className="stat-label">Projects Completed</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="footer-bottom container">
-          <p>© {new Date().getFullYear()} The Builder. All rights reserved.</p>
-          <p>Designed by YourName / Your Company</p>
-        </div>
-      </footer>
     </div>
   );
 };

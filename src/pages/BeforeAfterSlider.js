@@ -2,6 +2,8 @@ import React from "react";
 import BeforeAfterSection from "../components/BeforeAfterSection";
 import "./BeforeAfterSlider.css";
 
+
+
 const BeforeAfterSlider = () => {
   // Example data, you’ll replace these URLs
   const sections = [
@@ -31,6 +33,7 @@ const BeforeAfterSlider = () => {
           afterImg={sec.afterImg}
         />
       ))}
+      
     </div>
   );
 };

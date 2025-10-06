@@ -2,60 +2,63 @@
 .search-bar-container {
   display: flex;
   justify-content: center;
-  padding: 40px 20px;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  padding: 20px;
   background-color: #ff6600; /* orange background */
-  margin-top: 0;  /* remove gap above */
+  margin-top: 0;
+  border-radius: 8px;
 }
 
-.search-bar-container input {
-  width: 60%;
-  max-width: 600px;
-  padding: 15px 20px;
+.search-bar-container input,
+.search-bar-container select {
+  padding: 12px 15px;
   font-size: 16px;
   border: none;
   border-radius: 8px;
   outline: none;
   transition: all 0.3s ease;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.search-bar-container input:focus {
+.search-bar-container input:focus,
+.search-bar-container select:focus {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
-
-/* Hero section (blue background) */
-.hero-section {
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
-  padding-top: 3cm; /* ⬅️ push content down */
+.search-bar-container input {
+  width: 250px;
+  max-width: 100%;
 }
 
-/* Search Bar container */
-.search-bar-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
-  margin-top: 3cm; /* ⬅️ OR apply margin here if you want only the bar lower */
+.search-bar-container select {
+  min-width: 150px;
+  cursor: pointer;
 }
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .search-bar-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-bar-container input,
+  .search-bar-container select {
+    width: 100%;
+  }
+}
 
 /* ================== Property Grid ================== */
 .home-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 30px;
-  padding: px;
+  padding: 20px;
   max-width: 1400px;
-  margin:0 auto;
+  margin: 0 auto;
   background-color: #f8f9fa;
 }
 
@@ -90,21 +93,6 @@
   }
 }
 
-/* ================== Property Card Styling (Gallery-like) ================== */
-.property-card {
-  background: #fff;
-  border-radius: 4px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.property-card:hover {
-  transform: translateY(-5px);
-}
-
-/* Property image - gallery style */
 /* ================== Property Card Styling ================== */
 .property-card {
   background: #faf9f9;
@@ -114,7 +102,7 @@
   transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;
-  align-items: center; /* center image */
+  align-items: center;
 }
 
 .property-card:hover {
@@ -123,22 +111,19 @@
 
 /* Property image with fixed size */
 .property-card img {
-  width: 6cm;            
-  height: 9.5cm;         
+  width: 6cm;
+  height: 9.5cm;
   display: block;
-  object-fit: cover;     
+  object-fit: cover;
   border-radius: 8px;
-  /* softer shadow */
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
 
 .property-card:hover img {
-  transform: scale(1.05); 
-  /* optional: slightly stronger shadow on hover */
+  transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
-
 
 /* Property info */
 .property-info {
@@ -159,8 +144,7 @@
   line-height: 1.5;
 }
 
-
-/* ================== Gallery Section (Optional) ================== */
+/* ================== Gallery Section ================== */
 .gallery-section {
   padding: 60px 20px;
 }
@@ -181,35 +165,42 @@
 
 .gallery-card {
   position: relative;
-  overflow: hidden;
   border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-.gallery-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.4s ease;
-}
-
-.gallery-card:hover img {
-  transform: scale(1.1);
-}
-
+/* ✅ Remove black shade */
 .gallery-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 40%;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  display: flex;
-  align-items: flex-end;
-  padding: 10px;
-  box-sizing: border-box;
+  background: transparent !important;
 }
 
+/* ✅ Hover or touch prompt */
+.gallery-card::after {
+  content: "Click to view details";
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9); /* orange badge */
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-card:hover::after {
+  opacity: 1;
+}
+
+/* ✅ Always visible on touch devices (mobile) */
+@media (hover: none) and (pointer: coarse) {
+  .gallery-card::after {
+    opacity: 1;
+  }
+}
 
 .view-more-container {
   text-align: center;
@@ -217,72 +208,10 @@
 }
 
 /* ================== Responsive adjustments ================== */
-@media (max-width: 1024px) {
+@media (max-width: 1024px),
+(max-width: 768px),
+(max-width: 480px) {
   .property-card img {
     height: auto;
-  }
-}
-
-@media (max-width: 768px) {
-  .property-card img {
-    height: auto;
-  }
-}
-
-@media (max-width: 480px) {
-  .property-card img {
-    height: auto;
-  }
-}
-/* ================== Search Bar Styling ================== */
-.search-bar-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px; /* spacing between inputs */
-  flex-wrap: wrap; /* stack on smaller screens */
-  padding: 20px;
-  background-color: #ff6600; /* orange background */
-  margin-top: 0;
-  border-radius: 8px;
-}
-
-.search-bar-container input,
-.search-bar-container select {
-  padding: 12px 15px;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  outline: none;
-  transition: all 0.3s ease;
-  background-color: #fff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.search-bar-container input:focus,
-.search-bar-container select:focus {
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-}
-
-.search-bar-container input {
-  width: 250px; /* search input width */
-  max-width: 100%;
-}
-
-.search-bar-container select {
-  min-width: 150px;
-  cursor: pointer;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .search-bar-container {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .search-bar-container input,
-  .search-bar-container select {
-    width: 100%;
   }
 }

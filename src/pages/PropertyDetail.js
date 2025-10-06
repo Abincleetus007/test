@@ -4,6 +4,7 @@ import WhatsAppButton from "../components/WhatsAppButton";
 
 import "./PropertyDetail.css";
 import propertiesData from "../data/properties";
+import Footer from "../components/footer";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -230,6 +231,9 @@ export default function PropertyDetail() {
           )}
         </div>
       )}
+      {/* Footer */}
+<footer className="footer"> <Footer />
+ </footer>
     </div>
   );
 }

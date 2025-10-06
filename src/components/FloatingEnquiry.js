@@ -6,6 +6,11 @@ import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 const FloatingEnquiry = () => {
+  // Pre-filled WhatsApp message
+  const whatsappMessage = encodeURIComponent(
+    "Hi, I would like to make an enquiry."
+  );
+
   return (
     <div className="floating-enquiry">
       {/* Quote Button */}
@@ -20,7 +25,7 @@ const FloatingEnquiry = () => {
 
       {/* WhatsApp */}
       <a
-        href="https://wa.me/919876543210"
+        href={`https://wa.me/7012599817?text=${whatsappMessage}`}
         className="icon-btn whatsapp"
         target="_blank"
         rel="noopener noreferrer"
