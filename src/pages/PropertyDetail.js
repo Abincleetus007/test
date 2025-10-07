@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import WhatsAppButton from "../components/WhatsAppButton";
-
+import Footer from "../components/footer";
 import "./PropertyDetail.css";
 import propertiesData from "../data/properties";
 
@@ -230,6 +230,9 @@ export default function PropertyDetail() {
           )}
         </div>
       )}
+       {/* Footer */}
+<footer className="footer"> <Footer />
+ </footer>
     </div>
   );
 }
