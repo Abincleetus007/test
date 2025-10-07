@@ -19,8 +19,9 @@ import propertiesData from "../data/properties"; // gallery data
 const heroImages = [
   "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1400&q=80",
   "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1400&q=80",
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80"
+  "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80"
 ];
+
 
 const serviceBlocks = [
   {
@@ -216,31 +217,47 @@ const HomePage = () => {
           </div>
 
           <div className="services-grid">
-            <div className="service-card">
-              <h3>Construction</h3>
-              <p>High-quality construction services with attention to detail and timely delivery.</p>
-            </div>
-            <div className="service-card">
-              <h3>Interior Design</h3>
-              <p>Transform your spaces into elegant, functional, and modern interiors.</p>
-            </div>
-            <div className="service-card">
-              <h3>Architecture</h3>
-              <p>Innovative architectural designs that blend aesthetics with functionality.</p>
-            </div>
-            <div className="service-card">
-              <h3>Consultation</h3>
-              <p>Expert consultation to help you plan and execute your dream projects.</p>
-            </div>
-            <div className="service-card">
-              <h3>Project Management</h3>
-              <p>End-to-end project management ensuring quality, safety, and efficiency.</p>
-            </div>
-            <div className="service-card">
-              <h3>Renovation</h3>
-              <p>Modernize and upgrade existing spaces with creative renovation solutions.</p>
-            </div>
-          </div>
+  <div className="service-card">
+    <h3>Construction</h3>
+    <p>High-quality construction services with attention to detail and timely delivery.</p>
+  </div>
+  <div className="service-card">
+    <h3>Consultation</h3>
+    <p>Expert consultation to help you plan and execute your dream projects.</p>
+  </div>
+  <div className="service-card">
+    <h3>Project Management</h3>
+    <p>End-to-end project management ensuring quality, safety, and efficiency.</p>
+  </div>
+  <div className="service-card">
+    <h3>Renovation</h3>
+    <p>Modernize and upgrade existing spaces with creative renovation solutions.</p>
+  </div>
+  
+  {/* New Services */}
+  <div className="service-card">
+    <h3>A Plan</h3>
+    <p>Architectural or building plan creation tailored to your project needs.</p>
+  </div>
+  <div className="service-card">
+    <h3>Estimation</h3>
+    <p>Accurate calculation of project costs to ensure budget-friendly planning.</p>
+  </div>
+  <div className="service-card">
+    <h3>3D Modelling</h3>
+    <p>Creating digital 3D visualizations of your proposed designs for better clarity.</p>
+  </div>
+  <div className="service-card">
+    <h3>Supervision</h3>
+    <p>Professional oversight of construction work to maintain quality and timelines.</p>
+  </div>
+  
+  <div className="service-card">
+    <h3>Interior Designing</h3>
+    <p>Expert designing and decoration to create functional and aesthetic interior spaces.</p>
+  </div>
+</div>
+
         </div>
       </section>
 

@@ -6,7 +6,7 @@
   gap: 15px;
   flex-wrap: wrap;
   padding: 20px;
-  background-color: #ff6600; /* orange background */
+  background-color: var(--light-blue); /* updated background */
   margin-top: 0;
   border-radius: 8px;
 }
@@ -135,7 +135,7 @@
 .property-info h3 {
   font-size: 18px;
   margin-bottom: 8px;
-  color: #333;
+  color: var(--dark-blue); /* updated */
 }
 
 .property-info p {
@@ -143,6 +143,7 @@
   color: #555;
   line-height: 1.5;
 }
+
 /* ================== Gallery Section ================== */
 .gallery-section {
   padding: 60px 20px;
@@ -193,11 +194,11 @@
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
-  color: #ff6600; /* text color */
+  color: var(--light-blue); /* updated */
   font-weight: bold;
   font-size: 0.95rem;
   text-align: center;
-  background: rgba(255, 255, 255, 0.8); /* light background */
+  background: rgba(255, 255, 255, 0.8);
   padding: 6px 10px;
   border-radius: 6px;
   opacity: 0;
@@ -221,7 +222,6 @@
     transform: translateX(-50%);
   }
 }
-
 
 /* ================== Responsive adjustments ================== */
 @media (max-width: 1024px),

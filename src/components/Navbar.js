@@ -28,7 +28,7 @@ const Navbar = () => {
         <div className="nav-logo" onClick={() => setActiveSection("home")}>
   <Link to="/" className="logo-link">
     <img 
-      src={require("../data/logo.png")} 
+      src={require("../data/logo2.png")} 
       alt="Crystal Builders Logo" 
       className="logo-img"
     />

@@ -69,15 +69,23 @@ export default function Contact() {
 
       {/* Full-width Google Map */}
       <div className="contact-map">
-        <iframe
-          title="Crystal Builders Location"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3912.467739385252!2d75.8516!3d10.0224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d0b9f3b36df%3A0xd7d893987b5b4a8d!2sKochi%2C%20Kerala!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
-          width="100%"
-          height="450"
-          style={{ border: 0 }}
-          allowFullScreen=""
-          loading="lazy"
-        ></iframe>
+       <div className="contact-map">
+  <div className="contact-map">
+  <iframe
+    title="Crystal Builders Location"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3941.128898103713!2d76.673315!3d8.9602686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0609d2b8a5473b%3A0xb23213f8f7bc400f!2sCrystal%20Builders!5e0!3m2!1sen!2sin!4v1759851787342!5m2!1sen!2sin"
+    width="100%"
+    height="450"
+    style={{ border: 0 }}
+    allowFullScreen
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+  ></iframe>
+</div>
+
+</div>
+
+
       </div>
 
       <Footer />
