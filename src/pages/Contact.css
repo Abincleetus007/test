@@ -2,28 +2,45 @@
   padding: 40px 20px;
   max-width: 1200px;
   margin: 0 auto;
+  font-family: "Poppins", sans-serif;
+  align-self: center;
 }
 
 .contact-container h1 {
   text-align: center;
   color: #1a365d;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+  font-size: 2.4rem;
+  text-transform: uppercase;
+}
+
+.contact-subtitle {
+  text-align: center;
+  color: #222;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
 }
 
 .contact-content {
   display: flex;
+  justify-content: flex-start; /* Contact info on left */
   flex-wrap: wrap;
   gap: 40px;
 }
 
-.contact-info, .contact-form {
+.contact-info {
   flex: 1;
-  min-width: 300px;
+  min-width: 320px;
+  max-width: 500px;
 }
 
-.contact-info h2, .contact-form h2 {
+.contact-info h2 {
   color: #1a365d;
   margin-bottom: 25px;
+  font-size: 1.5rem;
 }
 
 .contact-item {
@@ -32,9 +49,9 @@
   margin-bottom: 20px;
 }
 
-.contact-item i {
-  font-size: 1.2rem;
+.contact-icon {
   color: #1a365d;
+  font-size: 1.2rem;
   margin-right: 15px;
   width: 24px;
 }
@@ -46,7 +63,8 @@
   flex-wrap: wrap;
 }
 
-.whatsapp-btn, .call-btn {
+.whatsapp-btn,
+.call-btn {
   padding: 12px 20px;
   border: none;
   border-radius: 4px;
@@ -60,7 +78,7 @@
 }
 
 .whatsapp-btn {
-  background-color: #25D366;
+  background-color: #25d366;
   color: white;
 }
 
@@ -69,53 +87,20 @@
   color: white;
 }
 
-.contact-form form {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  margin-bottom: 15px;
-}
-
-input, select, textarea {
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 1rem;
-  font-family: inherit;
-}
-
-textarea {
-  height: 120px;
-  margin-bottom: 20px;
-  resize: vertical;
-}
-
-.submit-btn {
-  background-color: #ffc107;
-  color: #333;
-  border: none;
-  padding: 12px 30px;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.submit-btn:hover {
-  background-color: #ffb300;
+.contact-map {
+  width: 100%;
+  height: 450px;
+  border-radius: 0;
+  overflow: hidden;
+  margin-top: 50px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {
-  .form-row {
-    grid-template-columns: 1fr;
+  .contact-content {
+    justify-content: center;
   }
-  
+
   .contact-actions {
     flex-direction: column;
   }

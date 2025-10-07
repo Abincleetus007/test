@@ -1,74 +1,86 @@
-import { useState } from 'react';
-import WhatsAppButton from '../components/WhatsAppButton';
-import './Contact.css';
+import { useState } from "react";
+import WhatsAppButton from "../components/WhatsAppButton";
 import Footer from "../components/footer";
-// ✅ Import Font Awesome React Components
+import "./Contact.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: "",
   });
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message. We will contact you soon!');
+    alert("Thank you for your message. We will contact you soon!");
   };
 
   return (
-    <div className="contact-container">
-      <h1>Contact Us</h1>
-      <div className="contact-content">
-        <div className="contact-info">
-          <h2>Get In Touch</h2>
+    <>
+      <div className="contact-container">
+        <h1>Contact Us</h1>
+        <p className="contact-subtitle">
+          <strong>If You Have Any Query, Please Feel Free To Contact Us</strong>
+        </p>
 
-          {/* Phone */}
-          <div className="contact-item">
-            <FontAwesomeIcon icon={faPhone} className="contact-icon" />
-            <div>
-              <p>+91 0000000</p>
-              <p>+91 ooooo</p>
+        <div className="contact-content">
+          {/* Left - Info Section */}
+          <div className="contact-info">
+            <h2>Get In Touch</h2>
+
+            <div className="contact-item">
+              <FontAwesomeIcon icon={faMapMarkerAlt} className="contact-icon" />
+              <p>Crystal Builders, Kochi, Kerala, India</p>
             </div>
-          </div>
 
-          {/* Email */}
-          <div className="contact-item">
-            <FontAwesomeIcon icon={faEnvelope} className="contact-icon" />
-            <p>info@</p>
-          </div>
+            <div className="contact-item">
+              <FontAwesomeIcon icon={faPhone} className="contact-icon" />
+              <div>
+                <p>+91 9876543210</p>
+                <p>+91 9123456780</p>
+              </div>
+            </div>
 
-          {/* Location */}
-          <div className="contact-item">
-            <FontAwesomeIcon icon={faMapMarkerAlt} className="contact-icon" />
-            <p>Kerala, India</p>
-          </div>
+            <div className="contact-item">
+              <FontAwesomeIcon icon={faEnvelope} className="contact-icon" />
+              <p>info@crystalbuilders.com</p>
+            </div>
 
-          {/* Actions */}
-          <div className="contact-actions">
-            <WhatsAppButton 
-              message="Hi, I'm interested in your construction services. Can you provide more information?"
-              className="whatsapp-btn"
-            />
-            <a href="tel:+00000000" className="call-btn">
-              <FontAwesomeIcon icon={faPhone} className="contact-icon" /> Call Now
-            </a>
+            <div className="contact-actions">
+              <WhatsAppButton
+                message="Hi, I would like to make an enquiry."
+                className="whatsapp-btn"
+              />
+              <a href="tel:+919876543210" className="call-btn">
+                <FontAwesomeIcon icon={faPhone} className="contact-icon" /> Call Now
+              </a>
+            </div>
           </div>
         </div>
       </div>
-     
-    </div>
+
+      {/* Full-width Google Map */}
+      <div className="contact-map">
+        <iframe
+          title="Crystal Builders Location"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3912.467739385252!2d75.8516!3d10.0224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d0b9f3b36df%3A0xd7d893987b5b4a8d!2sKochi%2C%20Kerala!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
+          width="100%"
+          height="450"
+          style={{ border: 0 }}
+          allowFullScreen=""
+          loading="lazy"
+        ></iframe>
+      </div>
+
+      <Footer />
+    </>
   );
 }

@@ -1,9 +1,9 @@
 // src/pages/Home.js
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import PropertyCard from "../components/PropertyCard";
 import propertiesData from "../data/properties";
 import "./Home.css";
+import Footer from "../components/footer";
 
 export default function Home() {
   const [properties, setProperties] = useState([]);
@@ -82,6 +82,9 @@ export default function Home() {
           )}
         </div>
       </section>
+       {/* Footer */}
+<footer className="footer"> <Footer />
+ </footer>
     </div>
   );
 }
