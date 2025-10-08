@@ -1,13 +1,21 @@
+/* ================== PROPERTY DETAIL PAGE ================== */
+
+/* Container */
 .detail-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* ensures footer sticks to bottom */
   padding: 20px;
   max-width: 1200px;
   margin: auto;
 }
 
+/* Main Content */
 .property-content {
   display: grid;
   grid-template-columns: 2fr 1fr; /* Left = main details, Right = sidebar */
   gap: 30px;
+  flex: 1; /* take available vertical space */
 }
 
 /* ========== LEFT SIDE (Main Property) ========== */
@@ -19,7 +27,6 @@
 }
 
 /* ===== Slider ===== */
-/* Slider container */
 .slider {
   display: flex;
   align-items: center;
@@ -29,42 +36,17 @@
   position: relative;
   text-align: center;
   margin-bottom: 20px;
-  background: transparent; /* remove black shade */
 }
 
-/* Image inside slider */
 .slider-img {
   width: 100%;
   max-height: 400px;
-  object-fit: cover; /* or contain if you want full image with no cropping */
+  object-fit: cover;
   border-radius: 10px;
   cursor: pointer;
-  background: transparent; /* remove black behind image */
 }
 
-/* Fullscreen viewer */
-.fullscreen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent; /* was rgba(0,0,0,0.9), remove black shade */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-
-.fullscreen-img {
-  max-width: 90%;
-  max-height: 80%;
-  border-radius: 10px;
-  object-fit: contain;
-  background: transparent; /* remove black shade */
-}
-
-
+/* Slider arrows */
 .arrow {
   position: absolute;
   top: 50%;
@@ -76,7 +58,7 @@
   padding: 12px 16px;
   cursor: pointer;
   border-radius: 50%;
-  z-index: 10; /* make arrows clickable above image */
+  z-index: 10;
 }
 
 .arrow.left { left: 10px; }
@@ -93,7 +75,7 @@
   font-size: 13px;
 }
 
-/* ===== Property Header ===== */
+/* Property Header */
 .property-header {
   display: flex;
   justify-content: space-between;
@@ -135,7 +117,7 @@
   color: #444;
 }
 
-/* Actions (Video & Location buttons) */
+/* Actions (Video & Location) */
 .property-actions {
   display: flex;
   gap: 15px;
@@ -298,7 +280,7 @@
   margin-top: 15px;
 }
 
-/* Fullscreen image view */
+/* ========== Fullscreen image view ========== */
 .fullscreen {
   position: fixed;
   top: 0;
@@ -316,12 +298,18 @@
   max-width: 90%;
   max-height: 80%;
   border-radius: 10px;
+  object-fit: contain;
+}
+
+/* Footer */
+.footer {
+  margin-top: auto; /* pushes footer to bottom */
 }
 
 /* 📱 Responsive Styles */
 @media (max-width: 992px) {
   .property-content {
-    grid-template-columns: 1fr; /* Stack main + right column vertically */
+    grid-template-columns: 1fr;
   }
 
   .property-main,
@@ -332,10 +320,6 @@
 
   .slider-img {
     max-height: 300px;
-  }
-
-  .right-column {
-    flex-direction: column;
   }
 }
 

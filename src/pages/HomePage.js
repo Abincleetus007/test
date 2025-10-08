@@ -19,7 +19,7 @@ import propertiesData from "../data/properties"; // gallery data
 const heroImages = [
   "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1400&q=80",
   "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1400&q=80",
-  "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80"
+  "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1350&q=80"
 ];
 
 
@@ -168,12 +168,7 @@ const HomePage = () => {
         ))}
     </div>
 
-    {/* Right Arrow */}
-    {currentIndex + 4 < propertiesData.length && (
-      <button className="gallery-arrow right" onClick={() => setCurrentIndex(currentIndex + 1)}>
-        &#10095;
-      </button>
-    )}
+   
   </div>
 
 
@@ -181,10 +176,16 @@ const HomePage = () => {
   <div className="view-more-container">
     
 
-    {/* 🔹 New Button to Go to Projects */}
-    <button className="btn-go-projects" onClick={() => navigate("/projects")}>
-     View more
-    </button>
+   <button
+  className="btn-go-projects"
+  onClick={() => {
+    navigate("/projects");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }}
+>
+  View more
+</button>
+
   </div>
 </section>
 
