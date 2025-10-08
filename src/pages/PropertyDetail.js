@@ -187,13 +187,7 @@ export default function PropertyDetail() {
                 </a>
               </div>
 
-              <div className="listing-info">
-                <div>
-                  Listed on{" "}
-                  {new Date(property.createdAt || Date.now()).toLocaleDateString()}
-                </div>
-                <div>Response time: Within 1 hour</div>
-              </div>
+              
             </div>
           </div>
         </div>
