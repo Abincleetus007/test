@@ -123,123 +123,52 @@ const HomePage = () => {
         </div>
       </section>
 
-     {/* Gallery Section */}
-<section className="gallery-section">
-  <h2>Inspiration for Your Next Project</h2>
+      {/* Gallery Section */}
+      <section className="gallery-section">
+        <h2>Inspiration for Your Next Project</h2>
 
-  <div className="gallery-wrapper" style={{ position: "relative" }}>
-    {/* Left Arrow */}
-    {currentIndex > 0 && (
-      <button
-        className="gallery-arrow left"
-        onClick={() => {
-          setCurrentIndex((prev) => Math.max(prev - 1, 0));
-          const container = document.querySelector(".homepage-gallery-scroll");
-          container.scrollBy({ left: -300, behavior: "smooth" });
-        }}
-        style={{
-          position: "absolute",
-          left: "10px",
-          top: "50%",
-          transform: "translateY(-50%)",
-          background: "rgba(0,0,0,0.5)",
-          color: "white",
-          border: "none",
-          borderRadius: "50%",
-          width: "40px",
-          height: "40px",
-          cursor: "pointer",
-          zIndex: 10,
-        }}
-      >
-        &#10094;
-      </button>
-    )}
+        <div className="gallery-wrapper">
+          {currentIndex > 0 && (
+            <button
+              className="gallery-arrow left"
+              onClick={() => setCurrentIndex(currentIndex - 1)}
+            >
+              &#10094;
+            </button>
+          )}
 
-    <div
-      className="homepage-gallery-scroll"
-      style={{
-        overflowX: "auto",
-        scrollBehavior: "smooth",
-        whiteSpace: "nowrap",
-        paddingBottom: "10px",
-      }}
-    >
-      <div
-        className="gallery-grid"
-        style={{
-          display: "inline-flex",
-          gap: "20px",
-        }}
-      >
-        {propertiesData.slice(currentIndex, currentIndex + 5).map((property) => (
-          <div
-            key={property._id}
-            className="gallery-card"
-            onClick={() => handlePropertyClick(property._id)}
-            style={{ flex: "0 0 auto", width: "8cm" }}
-          >
-            <img
-              src={property.primaryImage || property.images?.[0]}
-              alt={property.title}
-              style={{
-                width: "12cm",
-                height: "16cm",
-                objectFit: "cover",
-                borderRadius: "8px",
-                boxShadow: "0 3px 10px rgba(0, 0, 0, 0.1)",
-              }}
-            />
-            <div className="gallery-overlay"></div>
+          <div className="gallery-grid">
+            {propertiesData
+              .slice(currentIndex, currentIndex + 4)
+              .map((property) => (
+                <div
+                  key={property._id}
+                  className="gallery-card"
+                  onClick={() => handlePropertyClick(property._id)}
+                  style={{ cursor: "pointer" }}
+                >
+                  <img
+                    src={property.primaryImage || property.images?.[0]}
+                    alt={property.title}
+                  />
+                  <div className="gallery-overlay"></div>
+                </div>
+              ))}
           </div>
-        ))}
-      </div>
-    </div>
+        </div>
 
-    {/* Right Arrow */}
-    {currentIndex + 4 < propertiesData.length && (
-      <button
-        className="gallery-arrow right"
-        onClick={() => {
-          setCurrentIndex((prev) =>
-            Math.min(prev + 1, propertiesData.length - 4)
-          );
-          const container = document.querySelector(".homepage-gallery-scroll");
-          container.scrollBy({ left: 300, behavior: "smooth" });
-        }}
-        style={{
-          position: "absolute",
-          right: "10px",
-          top: "50%",
-          transform: "translateY(-50%)",
-          background: "rgba(0,0,0,0.5)",
-          color: "white",
-          border: "none",
-          borderRadius: "50%",
-          width: "40px",
-          height: "40px",
-          cursor: "pointer",
-          zIndex: 10,
-        }}
-      >
-        &#10095;
-      </button>
-    )}
-  </div>
-
-  <div className="view-more-container">
-    <button
-      className="btn-go-projects"
-      onClick={() => {
-        navigate("/projects");
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }}
-    >
-      View more
-    </button>
-  </div>
-</section>
-
+        <div className="view-more-container">
+          <button
+            className="btn-go-projects"
+            onClick={() => {
+              navigate("/projects");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+          >
+            View more
+          </button>
+        </div>
+      </section>
 
       {/* Before & After Slider */}
       <BeforeAfterSlider />
