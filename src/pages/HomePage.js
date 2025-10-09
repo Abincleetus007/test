@@ -183,7 +183,7 @@ const HomePage = () => {
               src={property.primaryImage || property.images?.[0]}
               alt={property.title}
               style={{
-                width: "10cm",
+                width: "12cm",
                 height: "16cm",
                 objectFit: "cover",
                 borderRadius: "8px",
