@@ -9,6 +9,8 @@ import Contact from "./pages/Contact";
 import ServicePage from "./pages/ServicePage";
 import BeforeAfterSlider from "./pages/BeforeAfterSlider";  // ✅ fixed import
 
+
+
 import "./App.css";
 
 export default function App() {
@@ -33,6 +35,7 @@ export default function App() {
 
         {/* Contact page */}
         <Route path="/contact" element={<Contact />} />
+        
 
         {/* ✅ Before/After page */}
         <Route path="/before-after" element={<BeforeAfterSlider />} />
