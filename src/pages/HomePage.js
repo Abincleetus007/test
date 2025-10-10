@@ -25,22 +25,19 @@ const serviceBlocks = [
     title: "Construction & Contracting",
     description:
       "If you are looking for a quality construction in lighting speed, we are available for you. Our team of experienced professionals ensures that your projects are completed on time and at a high standard without compromising material and labour quality. Our real-time project tracking allows you to monitor the progress of your project on a daily basis. Additionally, our dedicated relationship manager is always available to assist you.",
-    image:
-      "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=80",
   },
   {
     title: "Architectural Design & Construction",
     description:
       "We take the time to completely understand your requirements and narrow down the project’s style and aesthetics to match your dream. Following the consultations, 2D and 3D floor plans, as well as other detailed drawings, will be created for your project, making it easier to grasp the size and layout of a space. As our designs cover all elements such as windows, doors, flooring, and fixed installations such as bathroom and kitchen fittings, they will provide you with in-depth understanding. In addition, we provide you with a magnificent 3D rendering of your floor plan layout. With an imagination in motion, our customised walkthrough animation will show you the minute aspects of your dream project.",
-    image:
-      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80",
   },
   {
     title: "Interior Design & Consultation",
     description:
       "Being in the game for the last 8 years, we provide premium interior designing and consultation services all over the state of Kerala. Your flat, villa, detached house, or business space can be transformed into a beautiful living environment with a new, fresh atmosphere in which to enjoy living and working. Our talented designers will create magnificent designs for your space that mix aesthetic luxuries with functional requirements while staying within budget.",
-    image:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
   },
 ];
 
@@ -90,11 +87,13 @@ const HomePage = () => {
             <h2>Professional Construction & Interior Designing Company</h2>
             <p>
               Crystal Builders is committed to your comfort from start to finish.
-              From the time you walk through our doors, our family takes care of your family.
+              From the time you walk through our doors, our family takes care of
+              your family.
             </p>
             <p>
-              We are committed to building innovative, high-quality, functional, sustainable,
-              and value-for-money homes backed by superior architecture, technology, and prompt delivery.
+              We are committed to building innovative, high-quality, functional,
+              sustainable, and value-for-money homes backed by superior
+              architecture, technology, and prompt delivery.
             </p>
             <div className="stats-container">
               <div className="stat-item">
@@ -123,45 +122,60 @@ const HomePage = () => {
         </div>
       </section>
 
-  {/* ================== Gallery Section ================== */}
-     <section className="gallery-section">
-  <h2>Inspiration for Your Next Project</h2>
+      {/* Gallery Section */}
+      <section className="gallery-section">
+        <h2>Inspiration for Your Next Project</h2>
+        <div className="gallery-wrapper">
+          {currentIndex > 0 && (
+            <button
+              className="gallery-arrow left"
+              onClick={() => setCurrentIndex(currentIndex - 1)}
+            >
+              &#10094;
+            </button>
+          )}
 
-  <div className="gallery-wrapper" style={{ position: "relative" }}>
-   
-
-    <div className="homepage-gallery-scroll">
-      <div className="gallery-grid">
-        {propertiesData.slice(currentIndex, currentIndex + 4).map((property) => (
-          <div
-            key={property._id}
-            className="gallery-card"
-            onClick={() => handlePropertyClick(property._id)}
-          >
-            <img
-              src={property.primaryImage || property.images?.[0]}
-              alt={property.title}
-            />
+          <div className="gallery-grid">
+            {propertiesData
+              .slice(currentIndex, currentIndex + 4)
+              .map((property) => (
+                <div
+                  key={property._id}
+                  className="gallery-card"
+                  onClick={() => handlePropertyClick(property._id)}
+                  style={{ cursor: "pointer" }}
+                >
+                  <img
+                    src={property.primaryImage || property.images?.[0]}
+                    alt={property.title}
+                  />
+                  <div className="gallery-overlay"></div>
+                </div>
+              ))}
           </div>
-        ))}
-      </div>
-    </div>
-  </div>
 
-  <div className="view-more-container">
-    <button
-      className="btn-go-projects"
-      onClick={() => {
-        navigate("/projects");
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }}
-    >
-      View more
-    </button>
-  </div>
-</section>
+          {currentIndex < propertiesData.length - 4 && (
+            <button
+              className="gallery-arrow right"
+              onClick={() => setCurrentIndex(currentIndex + 1)}
+            >
+              &#10095;
+            </button>
+          )}
+        </div>
 
-
+        <div className="view-more-container">
+          <button
+            className="btn-go-projects"
+            onClick={() => {
+              navigate("/projects");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+          >
+            View more
+          </button>
+        </div>
+      </section>
 
       {/* Before & After Slider */}
       <BeforeAfterSlider />
@@ -173,10 +187,12 @@ const HomePage = () => {
           <p className="services-subtitle">
             Professional construction and design solutions for all your needs
           </p>
-
           <div className="detailed-services">
             {serviceBlocks.map((svc, idx) => (
-              <div className={`service-block ${idx % 2 === 0 ? "" : "reverse"}`} key={idx}>
+              <div
+                className={`service-block ${idx % 2 === 0 ? "" : "reverse"}`}
+                key={idx}
+              >
                 <div className="service-text">
                   <h2>{svc.title}</h2>
                   <p>{svc.description}</p>
@@ -203,8 +219,8 @@ const HomePage = () => {
           <div className="contact-text">
             <h2>CONTACT US</h2>
             <p>
-              Reach out to us for consultations, project inquiries, or any questions
-              about our construction and design services.
+              Reach out to us for consultations, project inquiries, or any
+              questions about our construction and design services.
             </p>
             <div className="contact-info">
               <p>
@@ -214,11 +230,12 @@ const HomePage = () => {
                 <FontAwesomeIcon icon={faEnvelope} /> info@builder.com
               </p>
             </div>
-
             <div className="contact-logos">
               <button
                 className="contact-logo-btn"
-                onClick={() => window.open("https://wa.me/7012599817", "_blank")}
+                onClick={() =>
+                  window.open("https://wa.me/7012599817", "_blank")
+                }
               >
                 <FontAwesomeIcon icon={faWhatsapp} size="2x" />
               </button>
@@ -231,7 +248,10 @@ const HomePage = () => {
               <button
                 className="contact-logo-btn"
                 onClick={() =>
-                  window.open("https://maps.app.goo.gl/ok4yFCoJVBcfsZir7")
+                  window.open(
+                    "https://maps.app.goo.gl/ok4yFCoJVBcfsZir7",
+                    "_blank"
+                  )
                 }
               >
                 <FontAwesomeIcon icon={faMapMarkerAlt} size="2x" />

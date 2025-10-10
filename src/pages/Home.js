@@ -1,23 +1,21 @@
-// src/pages/Home.js
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import propertiesData from "../data/properties";
 import "./Home.css";
 import Footer from "../components/footer";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
   const [properties, setProperties] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [showAll, setShowAll] = useState(false);
   const navigate = useNavigate();
-  const scrollRef = useRef(null);
 
   useEffect(() => {
+    // Load local properties data
     setProperties(propertiesData);
   }, []);
 
+  // Filter properties by title or bedrooms
   const filteredProperties = properties.filter((property) => {
     const query = searchQuery.toLowerCase();
     return (
@@ -26,22 +24,14 @@ export default function Home() {
     );
   });
 
+  // Show only first 6 if showAll is false
   const displayedProperties = showAll
     ? filteredProperties
-    : filteredProperties.slice(0, 10);
+    : filteredProperties.slice(0, 6);
 
   const handlePropertyClick = (id) => {
     navigate(`/property/${id}`);
-  };
-
-  const scroll = (direction) => {
-    if (scrollRef.current) {
-      const scrollAmount = 400;
-      scrollRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -59,46 +49,37 @@ export default function Home() {
       {/* Gallery Section */}
       <section className="gallery-section">
         <h2>Inspiration for Your Next Project</h2>
-
-        <div className="scroll-container">
-          <button className="arrow-btn left" onClick={() => scroll("left")}>
-            <FontAwesomeIcon icon={faChevronLeft} />
-          </button>
-
-          <div className="gallery-grid horizontal" ref={scrollRef}>
-            {displayedProperties.length > 0 ? (
-              displayedProperties.map((property) => (
-                <div
-                  key={property._id}
-                  className="gallery-card"
-                  onClick={() => handlePropertyClick(property._id)}
-                >
-                  <img
-                    src={property.primaryImage || property.images?.[0]}
-                    alt={property.title}
-                  />
-                  <div className="gallery-overlay"></div>
-                </div>
-              ))
-            ) : (
-              <p>No properties found.</p>
-            )}
-          </div>
-
-          <button className="arrow-btn right" onClick={() => scroll("right")}>
-            <FontAwesomeIcon icon={faChevronRight} />
-          </button>
+        <div className="gallery-grid">
+          {displayedProperties.length > 0 ? (
+            displayedProperties.map((property) => (
+              <div
+                key={property._id}
+                className="gallery-card"
+                onClick={() => handlePropertyClick(property._id)}
+              >
+                <img
+                  src={property.primaryImage || property.images?.[0]}
+                  alt={property.title}
+                />
+              </div>
+            ))
+          ) : (
+            <p>No properties found.</p>
+          )}
         </div>
 
-        {/* View More / View All Projects */}
+        {/* View More / View All Projects Button */}
         <div className="view-more-container">
-          {!showAll && filteredProperties.length > 10 && (
-            <button className="btn-view-more" onClick={() => setShowAll(true)}>
+          {!showAll && filteredProperties.length > 6 && (
+            <button className="btn-go-projects" onClick={() => setShowAll(true)}>
               View More
             </button>
           )}
           {showAll && (
-            <button className="btn-view-more" onClick={() => navigate("/projects")}>
+            <button
+              className="btn-go-projects"
+              onClick={() => navigate("/projects")}
+            >
               View All Projects
             </button>
           )}
