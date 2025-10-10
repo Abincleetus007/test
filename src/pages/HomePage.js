@@ -123,52 +123,45 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Gallery Section */}
-      <section className="gallery-section">
-        <h2>Inspiration for Your Next Project</h2>
+  {/* ================== Gallery Section ================== */}
+     <section className="gallery-section">
+  <h2>Inspiration for Your Next Project</h2>
 
-        <div className="gallery-wrapper">
-          {currentIndex > 0 && (
-            <button
-              className="gallery-arrow left"
-              onClick={() => setCurrentIndex(currentIndex - 1)}
-            >
-              &#10094;
-            </button>
-          )}
+  <div className="gallery-wrapper" style={{ position: "relative" }}>
+   
 
-          <div className="gallery-grid">
-            {propertiesData
-              .slice(currentIndex, currentIndex + 4)
-              .map((property) => (
-                <div
-                  key={property._id}
-                  className="gallery-card"
-                  onClick={() => handlePropertyClick(property._id)}
-                  style={{ cursor: "pointer" }}
-                >
-                  <img
-                    src={property.primaryImage || property.images?.[0]}
-                    alt={property.title}
-                  />
-                  <div className="gallery-overlay"></div>
-                </div>
-              ))}
-          </div>
-        </div>
-
-        <div className="view-more-container">
-          <button
-            className="btn-go-projects"
-            onClick={() => {
-              navigate("/projects");
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
+    <div className="homepage-gallery-scroll">
+      <div className="gallery-grid">
+        {propertiesData.slice(currentIndex, currentIndex + 4).map((property) => (
+          <div
+            key={property._id}
+            className="gallery-card"
+            onClick={() => handlePropertyClick(property._id)}
           >
-            View more
-          </button>
-        </div>
-      </section>
+            <img
+              src={property.primaryImage || property.images?.[0]}
+              alt={property.title}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div className="view-more-container">
+    <button
+      className="btn-go-projects"
+      onClick={() => {
+        navigate("/projects");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }}
+    >
+      View more
+    </button>
+  </div>
+</section>
+
+
 
       {/* Before & After Slider */}
       <BeforeAfterSlider />
