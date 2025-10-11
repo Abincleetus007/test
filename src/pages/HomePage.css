@@ -25,7 +25,7 @@ body, html {
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: #050505;
+  color: #f3eaea;
   position: relative;
   transition: background-image 1s ease-in-out;
   animation: kenburns-top 10s ease-in-out infinite alternate;
@@ -56,7 +56,7 @@ body, html {
   border: none;
   border-radius: 50px;
   background: linear-gradient(45deg, var(--light-blue), var(--light-blue-soft));
-  color: #fff;
+  color: #000000;
   cursor: pointer;
   transition: 0.3s ease;
 }
@@ -64,6 +64,22 @@ body, html {
 .hero-btn:hover {
   transform: scale(1.1);
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+}
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(5, 5, 5, 0.45); /* adjustable darkness */
+  z-index: 1;
+  border-radius: inherit;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2; /* ensures text stays above the shade */
 }
 
 /* ================== About Section ================== */

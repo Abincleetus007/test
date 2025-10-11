@@ -1,7 +1,16 @@
+/* ================== Before & After Page ================== */
 .ba-page {
-  padding: 60px 20px;
-  max-width: 1200px;
-  margin: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* full screen height */
+  width: 100%;
+  margin: 0;
+  background: #f9f9f9;
+}
+
+.ba-content {
+  flex: 1; /* pushes footer to bottom */
+  padding: 60px 0;
 }
 
 .ba-page-title {
@@ -9,4 +18,33 @@
   font-size: 2.4rem;
   margin-bottom: 50px;
   font-weight: bold;
+  color: #1a2b4c;
+}
+
+/* Inner container for sections */
+.ba-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Optional: space between sections */
+.ba-inner > * {
+  margin-bottom: 60px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ba-content {
+    padding: 40px 0;
+  }
+
+  .ba-page-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .ba-inner {
+    padding: 0 15px;
+  }
 }
