@@ -44,8 +44,7 @@ export default function Contact() {
             <div className="contact-item">
               <FontAwesomeIcon icon={faPhone} className="contact-icon" />
               <div>
-                <p>+91 9876543210</p>
-                <p>+91 9123456780</p>
+                <p>+91 9656470956</p>
               </div>
             </div>
 
@@ -59,7 +58,7 @@ export default function Contact() {
                 message="Hi, I would like to make an enquiry."
                 className="whatsapp-btn"
               />
-              <a href="tel:+919876543210" className="call-btn">
+              <a href="tel:+919656470956" className="call-btn">
                 <FontAwesomeIcon icon={faPhone} className="contact-icon" /> Call Now
               </a>
             </div>

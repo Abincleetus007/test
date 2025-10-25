@@ -182,7 +182,7 @@ export default function PropertyDetail() {
                 >
                   <FontAwesomeIcon icon={faWhatsapp} /> WhatsApp
                 </WhatsAppButton>
-                <a href={`tel:+1234567890`} className="call-btn">
+                <a href={`tel:+919656470956`} className="call-btn">
                   <FontAwesomeIcon icon={faPhone} /> Call Now
                 </a>
               </div>

@@ -25,7 +25,7 @@ const FloatingEnquiry = () => {
 
       {/* WhatsApp */}
       <a
-        href={`https://wa.me/7012599817?text=${whatsappMessage}`}
+        href={`https://wa.me/9656470956?text=${whatsappMessage}`}
         className="icon-btn whatsapp"
         target="_blank"
         rel="noopener noreferrer"
@@ -34,7 +34,7 @@ const FloatingEnquiry = () => {
       </a>
 
       {/* Call */}
-      <a href="tel:+919876543210" className="icon-btn call">
+      <a href="tel:+919656470956" className="icon-btn call">
         <FontAwesomeIcon icon={faPhone} />
       </a>
 

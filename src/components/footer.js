@@ -15,8 +15,9 @@ const Footer = () => {
         <div className="footer-col about">
           <h3>CRYSTAL BUILDERS</h3>
           <p>Professional Construction & Interior Designing Company</p>
-          <p>Address: Your full address here</p>
-          <p>Phone: +91 00000000 | Email: info@crystalbuilders.com</p>
+          <p>Address: Crystal Builders
+            Kacheri junction, Kollam, Kerala 691501e</p>
+          <p>Phone: 9656470956 | Email: info@crystalbuilders.com</p>
         </div>
 
         <div className="footer-col links">

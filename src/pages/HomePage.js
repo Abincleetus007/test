@@ -224,7 +224,7 @@ const HomePage = () => {
             </p>
             <div className="contact-info">
               <p>
-                <FontAwesomeIcon icon={faPhone} /> +91 00000000
+                <FontAwesomeIcon icon={faPhone} /> +919656470956
               </p>
               <p>
                 <FontAwesomeIcon icon={faEnvelope} /> info@builder.com
@@ -234,14 +234,14 @@ const HomePage = () => {
               <button
                 className="contact-logo-btn"
                 onClick={() =>
-                  window.open("https://wa.me/7012599817", "_blank")
+                  window.open("https://wa.me/+919656470956", "_blank")
                 }
               >
                 <FontAwesomeIcon icon={faWhatsapp} size="2x" />
               </button>
               <button
                 className="contact-logo-btn"
-                onClick={() => window.open("tel:+9100000000")}
+                onClick={() => window.open("tel:+919656470956")}
               >
                 <FontAwesomeIcon icon={faPhone} size="2x" />
               </button>

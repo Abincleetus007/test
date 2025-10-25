@@ -119,12 +119,12 @@ const ServicePage = () => {
       {/* Contact Info */}
       <section className="contact-info-section">
         <div className="contact-info">
-          <h3>Address</h3>
-          <p>.</p>
-          <p>+91 </p>
-          <p>+91 </p>
-          <p>info@</p>
-        </div>
+        <h3>CRYSTAL BUILDERS</h3>
+          <p>Professional Construction & Interior Designing Company</p>
+          <p>Address: Crystal Builders
+            Kacheri junction, Kollam, Kerala 691501e</p>
+          <p>Phone: 9656470956 | Email: info@crystalbuilders.com</p>
+          </div>
       </section>
       {/* Footer */}
 <footer className="footer"> <Footer />
